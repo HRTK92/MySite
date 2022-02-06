@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Head from 'next/head';
 import type { Link } from '../types/link';
 import { client } from '../libs/client'
