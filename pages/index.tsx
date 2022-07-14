@@ -11,7 +11,7 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>HRTK92</title>
+				<title>はらたく - HRTK92</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
 			<div className="relative max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16">
