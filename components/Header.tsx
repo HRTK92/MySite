@@ -10,7 +10,7 @@ export default function Header() {
           </a>
         </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <Link href={"/article"}>
+          <Link href={"/articles"}>
             <a className="mr-5 text-white hover:text-gray-900">記事</a>
           </Link>
         </nav>
