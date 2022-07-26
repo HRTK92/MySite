@@ -39,7 +39,11 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default function Articles() {
   const { data, error } = useSWR('https://api.rss2json.com/v1/api.json?rss_url=https://zenn.dev/hrtk92/feed', fetcher);
   if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (!data) return (
+    <div className="flex justify-center">
+      <div className="animate-spin h-10 w-10 border-4 border-blue-500 rounded-full border-t-transparent"></div>
+    </div>
+  );
 
   const zenn: RootObject = data
 
