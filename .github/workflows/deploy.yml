@@ -33,6 +33,9 @@ jobs:
       - name: Export Next.js app
         run: yarn export
 
+      - name: Sitemap
+        run: yarn next-sitemap --config sitemap.config.js
+
       # GitHub Pages にデプロイする
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
