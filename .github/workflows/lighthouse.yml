@@ -18,4 +18,4 @@ jobs:
       - name: Build
         run: yarn build
       - name: Run Lighthouse
-        run: lhci autorun
+        run: yarn lhci autorun --upload.target=temporary-public-storage
