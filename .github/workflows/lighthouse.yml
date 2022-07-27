@@ -17,5 +17,7 @@ jobs:
         run: yarn add -D @lhci/cli@0.8.x
       - name: Build
         run: yarn build
+        env:
+          urlPrefix: ''
       - name: Run Lighthouse
         run: yarn lhci autorun
