@@ -21,6 +21,7 @@ export default function Document() {
           sizes="16x16"
           href="/MySite/favicon-16x16.png"
         />
+        
       </Head>
       <body>
         <Main />
