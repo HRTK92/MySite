@@ -54,20 +54,58 @@ export default function Home() {
         <Grid>
           <Avatar
             squared
-            icon={<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png'/>}
-            onClick={() =>router.push('https://twitter.com/HRTK92')}
+            icon={
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png" />
+            }
+            onClick={() => router.push('https://twitter.com/HRTK92')}
           />
         </Grid>
         <Grid>
           <Avatar
             squared
-            icon={<img src='https://www.svgrepo.com/show/353655/discord-icon.svg' />}
-            onClick={()=>router.push('https://discord.com/users/618332297275375636')}
+            icon={
+              <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" />
+            }
+            onClick={() =>
+              router.push('https://discord.com/users/618332297275375636')
+            }
           />
         </Grid>
       </Grid.Container>
       <Card.Divider />
       <Grid.Container gap={2}>
+        <Grid xs={12} md={6}>
+          <Card css={{ p: '$6', mw: '400px' }}>
+            <Card.Header onClick={() => router.push('https://github.com/HRTK92')}>
+              <img
+                alt="github logo"
+                src="https://github.githubassets.com/favicons/favicon.svg"
+                width="34px"
+                height="34px"
+              />
+              <Grid.Container css={{ pl: '$6' }}>
+                <Grid xs={12}>
+                  <Text h4 css={{ lineHeight: '$xs' }}>
+                    GitHub
+                  </Text>
+                </Grid>
+                <Grid xs={12}>
+                  <Text css={{ color: '$accents8' }}>github.com/HRTK92</Text>
+                </Grid>
+              </Grid.Container>
+            </Card.Header>
+            <Card.Body css={{ py: '$2' }}>
+              <Text>
+                趣味で開発をしてます。主にwebアプリケーションなどを作っています。
+              </Text>
+            </Card.Body>
+            <Card.Footer>
+              <Link color="primary" onClick={() => router.push('https://github.com/HRTK92')}>
+                View GitHub
+              </Link>
+            </Card.Footer>
+          </Card>
+        </Grid>
         <Grid xs={12} md={6}>
           <Card css={{ p: '$6', mw: '400px' }}>
             <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
