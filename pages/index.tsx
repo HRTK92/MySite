@@ -58,6 +58,13 @@ export default function Home() {
             onClick={() =>router.push('https://twitter.com/HRTK92')}
           />
         </Grid>
+        <Grid>
+          <Avatar
+            squared
+            icon={<img src='https://www.svgrepo.com/show/353655/discord-icon.svg' />}
+            onClick={()=>router.push('https://discord.com/users/618332297275375636')}
+          />
+        </Grid>
       </Grid.Container>
       <Card.Divider />
       <Grid.Container gap={2}>
