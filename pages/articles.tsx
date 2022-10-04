@@ -56,7 +56,7 @@ export default function Articles() {
       <Grid.Container gap={2} justify="flex-start">
         {zenn.items.map(article => (
           <Grid xs={6} sm={3} key={article.link}>
-            <Card isPressable onClick={() => router.push(article.enclosure.link)}>
+            <Card isPressable onClick={() => router.push(article.link)}>
               <Card.Body css={{ p: 0 }}>
                 <Card.Image
                   src={article.enclosure.link}
