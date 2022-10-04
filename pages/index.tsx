@@ -74,7 +74,7 @@ export default function Home() {
       </Grid.Container>
       <Card.Divider />
       <Grid.Container gap={2} justify='center'>
-        <Grid xs={12} sm={6}>
+        <Grid xs={12} sm={6} justify='center'>
           <Card css={{ p: '$6', mw: '400px' }}>
             <Card.Header onClick={() => router.push('https://github.com/HRTK92')}>
               <img
@@ -106,7 +106,7 @@ export default function Home() {
             </Card.Footer>
           </Card>
         </Grid>
-        <Grid xs={12} sm={6}>
+        <Grid xs={12} sm={6} justify='center'>
           <Card css={{ p: '$6', mw: '400px' }}>
             <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
               <img
