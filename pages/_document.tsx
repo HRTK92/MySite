@@ -21,7 +21,10 @@ export default function Document() {
           sizes="16x16"
           href="/MySite/favicon-16x16.png"
         />
-        
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+        />
       </Head>
       <body>
         <Main />

@@ -1,80 +1,91 @@
+import {
+  Avatar,
+  Card,
+  Container,
+  Grid,
+  StyledCardBody,
+  Link,
+  Text,
+} from '@nextui-org/react';
 import Head from 'next/head';
-import useSWR from "swr";
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 export default function Home() {
-	const { data, error } = useSWR(
-		"https://api.github.com/users/HRTK92",
-		fetcher
-	);
-	return (
-		<>
-			<Head>
-				<title>はらたく - HRTK92</title>
-				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-			</Head>
-			<div className="relative max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16">
-				<div className="px-6">
-					<div className="flex flex-wrap justify-center">
-						<div className="w-full flex justify-center">
-							<div className="relative">
-								<img
-									src="https://avatars.githubusercontent.com/u/70054655?v=4"
-									className="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"
-								/>
-							</div>
-						</div>
-						<div className="w-full text-center mt-20">
-							{data ? (
-								<div className="flex justify-center lg:pt-4 pt-8 pb-0">
-									<div className="p-3 text-center">
-										<span className="text-xl font-bold block uppercase tracking-wide text-slate-700">
-											{data.public_repos}
-										</span>
-										<span className="text-sm text-slate-400">Public Repos</span>
-									</div>
-										<div className="p-3 text-center">
-											<span className="text-xl font-bold block uppercase tracking-wide text-slate-700">
-												{data.followers}
-											</span>
-											<span className="text-sm text-slate-400">Followers</span>
-										</div>
-
-										<div className="p-3 text-center">
-											<span className="text-xl font-bold block uppercase tracking-wide text-slate-700">
-												{data.following}
-											</span>
-											<span className="text-sm text-slate-400">Following</span>
-										</div>
-									</div>) : null}
-								</div>
-					</div>
-						<div className="text-center mt-2">
-							<h3 className="text-2xl text-slate-700 font-bold leading-normal mb-1">
-								HRTK92
-							</h3>
-							<div className="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
-								<i className="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75"></i>
-								🇯🇵Japan
-							</div>
-						</div>
-						<div className="mt-6 py-6 border-t border-slate-200 text-center">
-							<div className="flex flex-wrap justify-center">
-								<div className="w-full px-4">
-									<p className="font-light leading-relaxed text-slate-600 mb-4">
-										{data ? data.bio : null}
-									</p>
-									<a
-										href="https://github.com/HRTK92"
-										className="font-normal text-slate-700 hover:text-slate-400">
-										Follow Account
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</>
-			);
+  const { data, error } = useSWR(
+    'https://api.github.com/users/HRTK92',
+    fetcher,
+  );
+  const router = useRouter();
+  return (
+    <>
+      <Head>
+        <title>はらたく - HRTK92</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Grid.Container gap={2} justify="center">
+        <Grid css={{ margin: '$20' }}>
+          <Text b h1>
+            HRTK92
+          </Text>
+        </Grid>
+        <Grid css={{ margin: '$20' }}>
+          <Avatar
+            src="https://avatars.githubusercontent.com/u/70054655?v=4"
+            size={'xl'}
+            color="gradient"
+            bordered
+            zoomed></Avatar>
+        </Grid>
+      </Grid.Container>
+      <Grid.Container gap={2} justify="center" css={{ color: '$text' }}>
+        <Grid>
+          <Avatar
+            squared
+            icon={<span className="material-symbols-outlined">code</span>}
+            onClick={() => router.push('https://github.com/HRTK92')}
+          />
+        </Grid>
+      </Grid.Container>
+      <Card.Divider />
+      <Grid.Container gap={2}>
+        <Grid xs={12} md={6}>
+          <Card css={{ p: '$6', mw: '400px' }}>
+            <Card.Header onClick={()=> router.push("https://zenn.dev/hrtk92")}>
+              <img
+                alt="zenn logo"
+                src="https://zenn.dev/images/icon.png"
+                width="34px"
+                height="34px"
+              />
+              <Grid.Container css={{ pl: '$6' }}>
+                <Grid xs={12}>
+                  <Text h4 css={{ lineHeight: '$xs' }}>
+                    Zenn
+                  </Text>
+                </Grid>
+                <Grid xs={12}>
+                  <Text css={{ color: '$accents8' }}>zenn.dev</Text>
+                </Grid>
+              </Grid.Container>
+            </Card.Header>
+            <Card.Body css={{ py: '$2' }}>
+              <Text>
+                Zennで記事を書いています。主にプログラミングに関する記事を書いています。
+              </Text>
+            </Card.Body>
+            <Card.Footer>
+              <Link
+                color='primary'
+                onClick={()=>router.push('/articles')}>
+                View article list
+              </Link>
+            </Card.Footer>
+          </Card>
+        </Grid>
+      </Grid.Container>
+    </>
+  );
 }

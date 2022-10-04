@@ -1,4 +1,6 @@
+import { Card, Grid, Row, Text } from '@nextui-org/react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
 interface RootObject {
@@ -40,11 +42,9 @@ export default function Articles() {
   const { data, error } = useSWR('https://api.rss2json.com/v1/api.json?rss_url=https://zenn.dev/hrtk92/feed', fetcher);
   if (error) return <div>failed to load</div>;
   if (!data) return (
-    <div className="flex justify-center">
-      <div className="animate-spin h-10 w-10 border-4 border-blue-500 rounded-full border-t-transparent"></div>
-    </div>
+    <></>
   );
-
+  const router = useRouter();
   const zenn: RootObject = data
 
   return (
@@ -52,19 +52,30 @@ export default function Articles() {
       <Head>
         <title>記事一覧 | HRTK92</title>
       </Head>
-      <h1 className="container mx-auto px-10 pt-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
-        記事一覧
-      </h1>
-      <div className="container mx-auto p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+      <Text h1 b>記事一覧</Text>
+      <Grid.Container gap={2} justify="flex-start">
         {zenn.items.map(article => (
-          <div className="rounded overflow-hidden shadow-lg" key={article.link}>
-              <img className="w-full" src={article.enclosure.link} alt="" />
-            <div className="px-6 py-4">
-              <a href={article.link}>{article.title}</a>
-            </div>
-          </div>
+          <Grid xs={6} sm={3} key={article.link}>
+            <Card isPressable>
+              <Card.Body css={{ p: 0 }}>
+                <Card.Image
+                  src={article.enclosure.link}
+                  objectFit="cover"
+                  width="100%"
+                  height={140}
+                  alt={article.title}
+                  onClick={() => router.push(article.enclosure.link)}
+                />
+              </Card.Body>
+              <Card.Footer css={{ justifyItems: 'flex-start' }}>
+                <Row wrap="wrap" justify="space-between" align="center">
+                  <Text b>{article.title}</Text>
+                </Row>
+              </Card.Footer>
+            </Card>
+          </Grid>
         ))}
-      </div>
+      </Grid.Container>
     </>
   );
 }
