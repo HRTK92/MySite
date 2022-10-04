@@ -30,6 +30,9 @@ export default function Home() {
           <Text b h1>
             HRTK92
           </Text>
+          <Text h3 color="gray">
+            はらたく
+          </Text>
         </Grid>
         <Grid css={{ margin: '$20' }}>
           <Avatar
@@ -48,12 +51,19 @@ export default function Home() {
             onClick={() => router.push('https://github.com/HRTK92')}
           />
         </Grid>
+        <Grid>
+          <Avatar
+            squared
+            icon={<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png'/>}
+            onClick={() =>router.push('https://twitter.com/HRTK92')}
+          />
+        </Grid>
       </Grid.Container>
       <Card.Divider />
       <Grid.Container gap={2}>
         <Grid xs={12} md={6}>
           <Card css={{ p: '$6', mw: '400px' }}>
-            <Card.Header onClick={()=> router.push("https://zenn.dev/hrtk92")}>
+            <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
               <img
                 alt="zenn logo"
                 src="https://zenn.dev/images/icon.png"
@@ -67,7 +77,7 @@ export default function Home() {
                   </Text>
                 </Grid>
                 <Grid xs={12}>
-                  <Text css={{ color: '$accents8' }}>zenn.dev</Text>
+                  <Text css={{ color: '$accents8' }}>zenn.dev/hrtk92</Text>
                 </Grid>
               </Grid.Container>
             </Card.Header>
@@ -77,9 +87,7 @@ export default function Home() {
               </Text>
             </Card.Body>
             <Card.Footer>
-              <Link
-                color='primary'
-                onClick={()=>router.push('/articles')}>
+              <Link color="primary" onClick={() => router.push('/articles')}>
                 View article list
               </Link>
             </Card.Footer>
