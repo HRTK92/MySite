@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { createTheme, NextUIProvider, Text } from '@nextui-org/react';
 import NProgress from 'nprogress';
 import '../public/nprogress.css';
