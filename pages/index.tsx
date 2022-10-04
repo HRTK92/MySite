@@ -27,7 +27,12 @@ export default function Home() {
       </Head>
       <Grid.Container gap={2} justify="center">
         <Grid css={{ margin: '$20' }}>
-          <Text b h1>
+          <Text
+            b
+            h1
+            css={{
+              textGradient: '45deg, $purple600 -20%, $pink600 100%',
+            }}>
             HRTK92
           </Text>
           <Text h3 color="gray">
