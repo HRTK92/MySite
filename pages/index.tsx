@@ -40,7 +40,8 @@ export default function Home() {
             size={'xl'}
             color="gradient"
             bordered
-            zoomed></Avatar>
+            zoomed
+          />
         </Grid>
       </Grid.Container>
       <Grid.Container gap={2} justify="center" css={{ color: '$text' }}>
@@ -73,10 +74,11 @@ export default function Home() {
         </Grid>
       </Grid.Container>
       <Card.Divider />
-      <Grid.Container gap={2} justify='center'>
-        <Grid xs={12} sm={6} justify='center'>
+      <Grid.Container gap={2} justify="center">
+        <Grid xs={12} sm={6} justify="center">
           <Card css={{ p: '$6', mw: '400px' }}>
-            <Card.Header onClick={() => router.push('https://github.com/HRTK92')}>
+            <Card.Header
+              onClick={() => router.push('https://github.com/HRTK92')}>
               <img
                 alt="github logo"
                 src="https://github.githubassets.com/favicons/favicon.svg"
@@ -100,13 +102,15 @@ export default function Home() {
               </Text>
             </Card.Body>
             <Card.Footer>
-              <Link color="primary" onClick={() => router.push('https://github.com/HRTK92')}>
+              <Link
+                color="primary"
+                onClick={() => router.push('https://github.com/HRTK92')}>
                 View GitHub
               </Link>
             </Card.Footer>
           </Card>
         </Grid>
-        <Grid xs={12} sm={6} justify='center'>
+        <Grid xs={12} sm={6} justify="center">
           <Card css={{ p: '$6', mw: '400px' }}>
             <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
               <img
