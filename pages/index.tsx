@@ -177,7 +177,7 @@ export default function Home() {
             {data.items.map(article => (
               <Grid xs={6} sm={3} key={article.link}>
                 <Card
-                  className='animate__animated animate__fadeInLeft'
+                  className='animate__animated animate__fadeInLeft animate__delay-1s'
                   isPressable onClick={() => router.push(article.link)}>
                   <Card.Body css={{ p: 0 }}>
                     <Card.Image
