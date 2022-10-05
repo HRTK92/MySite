@@ -44,7 +44,7 @@ export default function Home() {
             HRTK92
           </Text>
           <Text
-            className="animate__animated animate__fadeIn animate__slow"
+            className="animate__animated animate__fadeIn animate__slower"
             h2
             color="gray">
             はらたく
@@ -52,7 +52,7 @@ export default function Home() {
         </Grid>
         <Grid css={{ margin: '$20' }}>
           <Avatar
-            className="animate__animated animate__fadeIn"
+            className="animate__animated animate__fadeIn animate__slow"
             src="/MySite/social_icons/myicon.webp"
             alt="HRTK92"
             css={{ size: '$20' }}
@@ -65,7 +65,7 @@ export default function Home() {
       <Grid.Container gap={2} justify="center" css={{ color: '$text' }}>
         <Grid>
           <Avatar
-            className="animate__animated animate__rotateIn"
+            className="animate__animated animate__rotateIn animate__slow"
             squared
             icon={
               <img
@@ -80,7 +80,7 @@ export default function Home() {
         </Grid>
         <Grid>
           <Avatar
-            className="animate__animated animate__rotateIn"
+            className="animate__animated animate__rotateIn animate__slow"
             squared
             icon={<img src="/MySite/social_icons/twitter.png" alt="Twitter" />}
             onClick={() => router.push('https://twitter.com/HRTK92')}
@@ -88,7 +88,7 @@ export default function Home() {
         </Grid>
         <Grid>
           <Avatar
-            className="animate__animated animate__rotateIn"
+            className="animate__animated animate__rotateIn animate__slow"
             squared
             icon={
               <img
@@ -108,7 +108,7 @@ export default function Home() {
       <Grid.Container gap={2} justify="center">
         <Grid xs={12} sm={6} justify="center">
           <Card
-            className="animate__animated animate__fadeInUp"
+            className="animate__animated animate__fadeInUp animate__slow"
             css={{ p: '$6', mw: '400px' }}>
             <Card.Header
               onClick={() => router.push('https://github.com/HRTK92')}>
@@ -120,7 +120,13 @@ export default function Home() {
               />
               <Grid.Container css={{ pl: '$6' }}>
                 <Grid xs={12}>
-                  <Text b size={20} css={{ lineHeight: '$xs' }}>
+                  <Text
+                    b
+                    size={20}
+                    css={{
+                      lineHeight: '$xs',
+                      textGradient: '45deg, #e0c3fc 0%, #8ec5fc 100%',
+                    }}>
                     GitHub
                   </Text>
                 </Grid>
@@ -145,7 +151,7 @@ export default function Home() {
         </Grid>
         <Grid xs={12} sm={6} justify="center">
           <Card
-            className="animate__animated animate__fadeInUp"
+            className="animate__animated animate__fadeInUp animate__slow"
             css={{ p: '$6', mw: '400px' }}>
             <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
               <img
@@ -156,7 +162,13 @@ export default function Home() {
               />
               <Grid.Container css={{ pl: '$6' }}>
                 <Grid xs={12}>
-                  <Text b size={20} css={{ lineHeight: '$xs' }}>
+                  <Text
+                    b
+                    size={20}
+                    css={{
+                      lineHeight: '$xs',
+                      textGradient: '45deg, #e0c3fc 0%, #8ec5fc 100%',
+                    }}>
                     Zenn
                   </Text>
                 </Grid>
@@ -189,7 +201,12 @@ export default function Home() {
       <Card.Divider />
       <Spacer y={1} />
 
-      <Text h3 css={{ textAlign: 'center' }}>
+      <Text
+        h3
+        css={{
+          textAlign: 'center',
+          textGradient: '45deg, #84fab0 -20%, #8fd3f4 100%',
+        }}>
         Zenn articles
       </Text>
       <Grid.Container id="zenn_articles" gap={2} justify="flex-start">
