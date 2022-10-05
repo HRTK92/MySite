@@ -22,7 +22,6 @@ export default function Document() {
           href="/MySite/favicon-16x16.png"
         />
         <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:title" content="HRTK92 - はらたく " />
         <meta
           property="og:description"

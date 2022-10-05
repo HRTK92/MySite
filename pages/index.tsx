@@ -2,11 +2,10 @@ import {
   Avatar,
   Card,
   Grid,
-  Link,
-  Text,
-  Row,
   Loading,
+  Row,
   Spacer,
+  Text,
 } from '@nextui-org/react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -31,6 +30,7 @@ export default function Home() {
           name="description"
           content="はらたくのポートフォリオサイトです。"
         />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Grid.Container gap={2} justify="center">
         <Grid css={{ margin: '$20' }}>
@@ -69,7 +69,7 @@ export default function Home() {
             squared
             icon={
               <img
-                src="/social_icons/github.svg"
+                src="/MySite/social_icons/github.svg"
                 height={50}
                 width={50}
                 alt="Github"
@@ -82,7 +82,7 @@ export default function Home() {
           <Avatar
             className="animate__animated animate__rotateIn"
             squared
-            icon={<img src="/social_icons/twitter.png" alt="Twitter" />}
+            icon={<img src="/MySite/social_icons/twitter.png" alt="Twitter" />}
             onClick={() => router.push('https://twitter.com/HRTK92')}
           />
         </Grid>
@@ -92,7 +92,7 @@ export default function Home() {
             squared
             icon={
               <img
-                src="/social_icons/discord.svg"
+                src="/MySite/social_icons/discord.svg"
                 height={50}
                 width={50}
                 alt="Discord"
@@ -114,7 +114,7 @@ export default function Home() {
               onClick={() => router.push('https://github.com/HRTK92')}>
               <img
                 alt="github logo"
-                src="/social_icons/github.svg"
+                src="/MySite/social_icons/github.svg"
                 width="34px"
                 height="34px"
               />
@@ -150,7 +150,7 @@ export default function Home() {
             <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
               <img
                 alt="zenn logo"
-                src="/social_icons/zenn.png"
+                src="/MySite/social_icons/zenn.png"
                 width="34ppx"
                 height="34px"
               />
