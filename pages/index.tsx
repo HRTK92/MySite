@@ -8,9 +8,7 @@ import {
   Loading,
   Spacer,
 } from '@nextui-org/react';
-
 import Head from 'next/head';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import { ArticleList } from '../types/article';
@@ -150,7 +148,7 @@ export default function Home() {
             className="animate__animated animate__fadeInUp"
             css={{ p: '$6', mw: '400px' }}>
             <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
-              <Image
+              <img
                 alt="zenn logo"
                 src="/social_icons/zenn.png"
                 width="34ppx"
