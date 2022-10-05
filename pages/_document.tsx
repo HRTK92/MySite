@@ -35,6 +35,7 @@ export default function Document() {
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
       <body>
+        <script> </script>
         <Main />
         <NextScript />
       </body>
