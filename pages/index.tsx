@@ -52,7 +52,7 @@ export default function Home() {
           <Avatar
             className="animate__animated animate__fadeIn"
             src="https://avatars.githubusercontent.com/u/70054655?v=4"
-            size={'xl'}
+            css={{ size: "$20" }}
             color="gradient"
             bordered
             zoomed
