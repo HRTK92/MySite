@@ -1,23 +1,28 @@
 import {
   Avatar,
   Card,
-  Container,
   Grid,
-  StyledCardBody,
   Link,
   Text,
+  Row,
+  Loading,
+  Spacer,
 } from '@nextui-org/react';
+
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
+import { ArticleList } from '../types/article';
 
-const fetcher = (url: string) => fetch(url).then(res => res.json());
+const fetcher = (url: string) =>
+  fetch(url).then(res => res.json() as Promise<ArticleList>);
 
 export default function Home() {
   const { data, error } = useSWR(
-    'https://api.github.com/users/HRTK92',
+    'https://api.rss2json.com/v1/api.json?rss_url=https://zenn.dev/hrtk92/feed',
     fetcher,
   );
+
   const router = useRouter();
   return (
     <>
@@ -36,7 +41,10 @@ export default function Home() {
             }}>
             HRTK92
           </Text>
-          <Text className="animate__animated animate__fadeIn animate__slow" h3 color="gray">
+          <Text
+            className="animate__animated animate__fadeIn animate__slow"
+            h3
+            color="gray">
             はらたく
           </Text>
         </Grid>
@@ -44,7 +52,7 @@ export default function Home() {
           <Avatar
             className="animate__animated animate__fadeIn"
             src="https://avatars.githubusercontent.com/u/70054655?v=4"
-            size={"xl"}
+            size={'xl'}
             color="gradient"
             bordered
             zoomed
@@ -86,7 +94,8 @@ export default function Home() {
       <Card.Divider />
       <Grid.Container gap={2} justify="center">
         <Grid xs={12} sm={6} justify="center">
-          <Card className="animate__animated animate__fadeInUp"
+          <Card
+            className="animate__animated animate__fadeInUp"
             css={{ p: '$6', mw: '400px' }}>
             <Card.Header
               onClick={() => router.push('https://github.com/HRTK92')}>
@@ -122,7 +131,8 @@ export default function Home() {
           </Card>
         </Grid>
         <Grid xs={12} sm={6} justify="center">
-          <Card className="animate__animated animate__fadeInUp"
+          <Card
+            className="animate__animated animate__fadeInUp"
             css={{ p: '$6', mw: '400px' }}>
             <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
               <img
@@ -148,12 +158,48 @@ export default function Home() {
               </Text>
             </Card.Body>
             <Card.Footer>
-              <Link color="primary" onClick={() => router.push('/articles')}>
+              <Text color="primary" onClick={() => {
+                if (typeof document !== 'undefined') {
+                  document.getElementById("zenn_articles")?.scrollIntoView(({ behavior: 'smooth', block: 'center' }))
+                }
+              }}>
                 View article list
-              </Link>
+              </Text>
             </Card.Footer>
           </Card>
         </Grid>
+      </Grid.Container>
+      <Card.Divider />
+      <Spacer y={1}/>
+      <Grid.Container id='zenn_articles' gap={2} justify="flex-start">
+        {data ? (
+          <>
+            {data.items.map(article => (
+              <Grid xs={6} sm={3} key={article.link}>
+                <Card
+                  className='animate__animated animate__fadeInLeft'
+                  isPressable onClick={() => router.push(article.link)}>
+                  <Card.Body css={{ p: 0 }}>
+                    <Card.Image
+                      src={article.enclosure.link}
+                      objectFit="cover"
+                      width="100%"
+                      height={140}
+                      alt={article.title}
+                    />
+                  </Card.Body>
+                  <Card.Footer css={{ justifyItems: 'flex-start' }}>
+                    <Row wrap="wrap" justify="space-between" align="center">
+                      <Text b>{article.title}</Text>
+                    </Row>
+                  </Card.Footer>
+                </Card>
+              </Grid>
+            ))}
+          </>
+        ) : (
+          <Text>最新の記事を読み込み中<Loading/></Text>
+        )}
       </Grid.Container>
     </>
   );
