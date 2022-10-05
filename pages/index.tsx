@@ -120,7 +120,7 @@ export default function Home() {
               />
               <Grid.Container css={{ pl: '$6' }}>
                 <Grid xs={12}>
-                  <Text h4 css={{ lineHeight: '$xs' }}>
+                  <Text b size={20} css={{ lineHeight: '$xs' }}>
                     GitHub
                   </Text>
                 </Grid>
@@ -156,7 +156,7 @@ export default function Home() {
               />
               <Grid.Container css={{ pl: '$6' }}>
                 <Grid xs={12}>
-                  <Text h4 css={{ lineHeight: '$xs' }}>
+                  <Text b size={20} css={{ lineHeight: '$xs' }}>
                     Zenn
                   </Text>
                 </Grid>
@@ -188,6 +188,10 @@ export default function Home() {
       </Grid.Container>
       <Card.Divider />
       <Spacer y={1} />
+
+      <Text h3 css={{ textAlign: 'center' }}>
+        Zenn articles
+      </Text>
       <Grid.Container id="zenn_articles" gap={2} justify="flex-start">
         {data ? (
           <>
