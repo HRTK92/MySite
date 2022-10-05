@@ -28,6 +28,7 @@ export default function Home() {
       <Grid.Container gap={2} justify="center">
         <Grid css={{ margin: '$20' }}>
           <Text
+            className="animate__animated animate__fadeIn"
             b
             h1
             css={{
@@ -35,14 +36,15 @@ export default function Home() {
             }}>
             HRTK92
           </Text>
-          <Text h3 color="gray">
+          <Text className="animate__animated animate__fadeIn animate__slow" h3 color="gray">
             はらたく
           </Text>
         </Grid>
         <Grid css={{ margin: '$20' }}>
           <Avatar
+            className="animate__animated animate__fadeIn"
             src="https://avatars.githubusercontent.com/u/70054655?v=4"
-            size={'xl'}
+            size={"xl"}
             color="gradient"
             bordered
             zoomed
@@ -52,6 +54,7 @@ export default function Home() {
       <Grid.Container gap={2} justify="center" css={{ color: '$text' }}>
         <Grid>
           <Avatar
+            className="animate__animated animate__rotateIn"
             squared
             icon={<span className="material-symbols-outlined">code</span>}
             onClick={() => router.push('https://github.com/HRTK92')}
@@ -59,6 +62,7 @@ export default function Home() {
         </Grid>
         <Grid>
           <Avatar
+            className="animate__animated animate__rotateIn"
             squared
             icon={
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png" />
@@ -68,6 +72,7 @@ export default function Home() {
         </Grid>
         <Grid>
           <Avatar
+            className="animate__animated animate__rotateIn"
             squared
             icon={
               <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" />
@@ -81,7 +86,8 @@ export default function Home() {
       <Card.Divider />
       <Grid.Container gap={2} justify="center">
         <Grid xs={12} sm={6} justify="center">
-          <Card css={{ p: '$6', mw: '400px' }}>
+          <Card className="animate__animated animate__fadeInUp"
+            css={{ p: '$6', mw: '400px' }}>
             <Card.Header
               onClick={() => router.push('https://github.com/HRTK92')}>
               <img
@@ -116,7 +122,8 @@ export default function Home() {
           </Card>
         </Grid>
         <Grid xs={12} sm={6} justify="center">
-          <Card css={{ p: '$6', mw: '400px' }}>
+          <Card className="animate__animated animate__fadeInUp"
+            css={{ p: '$6', mw: '400px' }}>
             <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
               <img
                 alt="zenn logo"

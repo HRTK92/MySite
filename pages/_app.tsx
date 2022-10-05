@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import { createTheme, NextUIProvider, Text } from '@nextui-org/react';
 import NProgress from 'nprogress';
 import '../public/nprogress.css';
+import 'animate.css'
 
 const theme = createTheme({
   type: 'dark', // it could be "light" or "dark"
