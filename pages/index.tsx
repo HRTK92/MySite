@@ -10,6 +10,7 @@ import {
 } from '@nextui-org/react';
 
 import Head from 'next/head';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import { ArticleList } from '../types/article';
@@ -28,7 +29,10 @@ export default function Home() {
     <>
       <Head>
         <title>はらたく - HRTK92</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content="はらたくのポートフォリオサイトです。"
+        />
       </Head>
       <Grid.Container gap={2} justify="center">
         <Grid css={{ margin: '$20' }}>
@@ -43,7 +47,7 @@ export default function Home() {
           </Text>
           <Text
             className="animate__animated animate__fadeIn animate__slow"
-            h3
+            h2
             color="gray">
             はらたく
           </Text>
@@ -52,7 +56,8 @@ export default function Home() {
           <Avatar
             className="animate__animated animate__fadeIn"
             src="https://avatars.githubusercontent.com/u/70054655?v=4"
-            css={{ size: "$20" }}
+            alt="HRTK92"
+            css={{ size: '$20' }}
             color="gradient"
             bordered
             zoomed
@@ -64,7 +69,14 @@ export default function Home() {
           <Avatar
             className="animate__animated animate__rotateIn"
             squared
-            icon={<span className="material-symbols-outlined">code</span>}
+            icon={
+              <img
+                src="/social_icons/github.svg"
+                height={50}
+                width={50}
+                alt="Github"
+              />
+            }
             onClick={() => router.push('https://github.com/HRTK92')}
           />
         </Grid>
@@ -72,9 +84,7 @@ export default function Home() {
           <Avatar
             className="animate__animated animate__rotateIn"
             squared
-            icon={
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png" />
-            }
+            icon={<img src="/social_icons/twitter.png" alt="Twitter" />}
             onClick={() => router.push('https://twitter.com/HRTK92')}
           />
         </Grid>
@@ -83,7 +93,12 @@ export default function Home() {
             className="animate__animated animate__rotateIn"
             squared
             icon={
-              <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" />
+              <img
+                src="/social_icons/discord.svg"
+                height={50}
+                width={50}
+                alt="Discord"
+              />
             }
             onClick={() =>
               router.push('https://discord.com/users/618332297275375636')
@@ -101,7 +116,7 @@ export default function Home() {
               onClick={() => router.push('https://github.com/HRTK92')}>
               <img
                 alt="github logo"
-                src="https://github.githubassets.com/favicons/favicon.svg"
+                src="/social_icons/github.svg"
                 width="34px"
                 height="34px"
               />
@@ -122,11 +137,11 @@ export default function Home() {
               </Text>
             </Card.Body>
             <Card.Footer>
-              <Link
+              <Text
                 color="primary"
                 onClick={() => router.push('https://github.com/HRTK92')}>
                 View GitHub
-              </Link>
+              </Text>
             </Card.Footer>
           </Card>
         </Grid>
@@ -135,10 +150,10 @@ export default function Home() {
             className="animate__animated animate__fadeInUp"
             css={{ p: '$6', mw: '400px' }}>
             <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
-              <img
+              <Image
                 alt="zenn logo"
-                src="https://zenn.dev/images/icon.png"
-                width="34px"
+                src="/social_icons/zenn.png"
+                width="34ppx"
                 height="34px"
               />
               <Grid.Container css={{ pl: '$6' }}>
@@ -158,11 +173,15 @@ export default function Home() {
               </Text>
             </Card.Body>
             <Card.Footer>
-              <Text color="primary" onClick={() => {
-                if (typeof document !== 'undefined') {
-                  document.getElementById("zenn_articles")?.scrollIntoView(({ behavior: 'smooth', block: 'center' }))
-                }
-              }}>
+              <Text
+                color="primary"
+                onClick={() => {
+                  if (typeof document !== 'undefined') {
+                    document
+                      .getElementById('zenn_articles')
+                      ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                }}>
                 View article list
               </Text>
             </Card.Footer>
@@ -170,15 +189,16 @@ export default function Home() {
         </Grid>
       </Grid.Container>
       <Card.Divider />
-      <Spacer y={1}/>
-      <Grid.Container id='zenn_articles' gap={2} justify="flex-start">
+      <Spacer y={1} />
+      <Grid.Container id="zenn_articles" gap={2} justify="flex-start">
         {data ? (
           <>
             {data.items.map(article => (
               <Grid xs={6} sm={3} key={article.link}>
                 <Card
-                  className='animate__animated animate__fadeInLeft animate__delay-1s'
-                  isPressable onClick={() => router.push(article.link)}>
+                  className="animate__animated animate__fadeInLeft animate__delay-1s"
+                  isPressable
+                  onClick={() => router.push(article.link)}>
                   <Card.Body css={{ p: 0 }}>
                     <Card.Image
                       src={article.enclosure.link}
@@ -198,7 +218,10 @@ export default function Home() {
             ))}
           </>
         ) : (
-          <Text>最新の記事を読み込み中<Loading/></Text>
+          <Text>
+            最新の記事を読み込み中
+            <Loading />
+          </Text>
         )}
       </Grid.Container>
     </>

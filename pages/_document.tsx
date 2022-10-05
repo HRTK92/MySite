@@ -1,8 +1,8 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="ja">
       <Head>
         <link
           rel="apple-touch-icon"
@@ -21,10 +21,19 @@ export default function Document() {
           sizes="16x16"
           href="/MySite/favicon-16x16.png"
         />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content="HRTK92 - はらたく " />
+        <meta
+          property="og:description"
+          content="はらたくのポートフォリオサイトです"
         />
+        <meta property="og:site_name" content="サイト名" />
+        <meta property="og:url" content="https://hrtk92.github.io/MySite" />
+        <meta property="og:image" content="./assets/ogp.jpg" />
+        <meta property="og:locale" content="ja_JP" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
       <body>
         <Main />
