@@ -23,17 +23,17 @@ class MyDocument extends Document {
             href="/MySite/favicon-16x16.png"
           />
           <meta charSet="utf-8" />
-          <meta property="og:title" content="HRTK92 - はらたく " />
+          <meta property="og:title" content="HRTK92 - はらたく" />
           <meta
             property="og:description"
             content="はらたくのポートフォリオサイトです"
           />
-          <meta property="og:site_name" content="サイト名" />
+          <meta property="og:site_name" content="HRTK92" />
           <meta property="og:url" content="https://hrtk92.github.io/MySite" />
-          <meta property="og:image" content="/MySite/og_image.jpeg" />
+          <meta property="og:image" content="https://hrtk92.github.io/MySite/og_image.jpeg" />
           <meta property="og:locale" content="ja_JP" />
           <meta property="og:type" content="website" />
-          <meta name="twitter:card" content="summary_large_image"></meta>
+          <meta name="twitter:card" content="summary_large_image"/>
         </Head>
         <body>
           <script>0</script>
