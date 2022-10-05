@@ -53,7 +53,7 @@ export default function Home() {
         <Grid css={{ margin: '$20' }}>
           <Avatar
             className="animate__animated animate__fadeIn"
-            src="https://avatars.githubusercontent.com/u/70054655?v=4"
+            src="/MySite/social_icons/myicon.webp"
             alt="HRTK92"
             css={{ size: '$20' }}
             color="gradient"
