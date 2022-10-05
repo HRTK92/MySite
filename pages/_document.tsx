@@ -30,7 +30,7 @@ class MyDocument extends Document {
           />
           <meta property="og:site_name" content="サイト名" />
           <meta property="og:url" content="https://hrtk92.github.io/MySite" />
-          <meta property="og:image" content="MySite/og_image.jpeg" />
+          <meta property="og:image" content="/MySite/og_image.jpeg" />
           <meta property="og:locale" content="ja_JP" />
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary_large_image"></meta>
