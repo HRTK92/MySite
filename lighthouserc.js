@@ -5,7 +5,6 @@ module.exports = {
       startServerCommand: 'yarn start',
       url: [
         'http://localhost:3000/',
-        'http://localhost:3000/articles',
     ],
     },
     upload: {
