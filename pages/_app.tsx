@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import type { AppProps } from 'next/app'
 import { createTheme, NextUIProvider, Text } from '@nextui-org/react'
@@ -37,10 +37,10 @@ const theme = createTheme({
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const handleStart = (url: any) => {
-      console.log(`Loading: ${url}`)
       NProgress.start()
     }
     const handleStop = () => {
@@ -57,10 +57,18 @@ function MyApp({ Component, pageProps }: AppProps) {
       router.events.off('routeChangeError', handleStop)
     }
   }, [router])
+
+  //loading
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 500)
+  }, [])
+
   return (
     <>
       <NextUIProvider theme={theme}>
-        <Component {...pageProps} />
+        {loading ? <></> : <Component {...pageProps} />}
       </NextUIProvider>
     </>
   )

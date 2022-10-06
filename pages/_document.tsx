@@ -21,7 +21,6 @@ class MyDocument extends Document {
           <meta name='twitter:card' content='summary_large_image' />
         </Head>
         <body>
-          <script>0</script>
           <Main />
           <NextScript />
         </body>
