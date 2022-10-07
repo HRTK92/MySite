@@ -1,7 +1,7 @@
 // https://zenn.dev/taichifukumoto/scraps/78e2f13e923b06
 
 
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || ''
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-DV348BSG1Q'
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 // PV 数の計測
