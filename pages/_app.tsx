@@ -5,6 +5,7 @@ import { createTheme, NextUIProvider, Text } from '@nextui-org/react'
 import NProgress from 'nprogress'
 import '../public/nprogress.css'
 import 'animate.css'
+import { usePageView } from '../hooks/usePageView'
 
 const theme = createTheme({
   type: 'dark', // it could be "light" or "dark"
@@ -63,6 +64,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       setLoading(false)
     }, 500)
   }, [])
+
+  usePageView()
 
   return (
     <>
