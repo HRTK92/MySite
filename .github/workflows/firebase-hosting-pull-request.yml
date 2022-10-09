@@ -9,9 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: yarn && yarn build && yarn export && yarn next-sitemap --config sitemap.config.js
+      - run: >-
+          yarn && yarn build && yarn export && yarn next-sitemap --config
+          sitemap.config.js
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HRTK92_WEB }}'
-          projectId: hrtk92-web
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HRTK92_DEVELOPER }}'
+          projectId: hrtk92-developer
