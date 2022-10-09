@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://hrtk92-web.web.app/',
+  siteUrl: 'https://hrtk92-developer.web.app/',
   generateRobotsTxt: true,
   sitemapSize: 7000,
   outDir: './out',

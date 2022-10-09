@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html lang='ja'>
         <Head>
-          <link rel='canonical' href='https://hrtk92-web.web.app/' />
+          <link rel='canonical' href='https://hrtk92-developer.web.app/' />
           <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
           <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
           <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
@@ -14,8 +14,8 @@ class MyDocument extends Document {
           <meta property='og:title' content='HRTK92 - はらたく' />
           <meta property='og:description' content='はらたくのポートフォリオサイトです' />
           <meta property='og:site_name' content='HRTK92' />
-          <meta property='og:url' content='https://hrtk92-web.web.app/MySite' />
-          <meta property='og:image' content='https://hrtk92-web.web.app/og_image.jpeg' />
+          <meta property='og:url' content='https://hrtk92-developer.web.app/MySite' />
+          <meta property='og:image' content='https://hrtk92-developer.web.app/og_image.jpeg' />
           <meta property='og:locale' content='ja_JP' />
           <meta property='og:type' content='website' />
           <meta name='twitter:card' content='summary_large_image' />
