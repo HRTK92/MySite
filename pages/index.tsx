@@ -1,4 +1,4 @@
-import { Avatar, Card, Container, Grid, Loading, Row, Spacer, Text } from '@nextui-org/react'
+import { Avatar, Card, Grid, Loading, Row, Spacer, Text } from '@nextui-org/react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
@@ -36,7 +36,7 @@ export default function Home() {
         <Grid css={{ margin: '$20' }}>
           <Avatar
             className='animate__animated animate__fadeIn animate__slow'
-            src='/MySite/social_icons/myicon.webp'
+            src='/social_icons/myicon.webp'
             alt='HRTK92'
             css={{ size: '$20' }}
             color='gradient'
@@ -50,7 +50,7 @@ export default function Home() {
           <Avatar
             className='animate__animated animate__rotateIn animate__slow'
             squared
-            icon={<img src='/MySite/social_icons/github.svg' height={50} width={50} alt='Github' />}
+            icon={<img src='/social_icons/github.svg' height={50} width={50} alt='Github' />}
             onClick={() => router.push('https://github.com/HRTK92')}
           />
         </Grid>
@@ -58,7 +58,7 @@ export default function Home() {
           <Avatar
             className='animate__animated animate__rotateIn animate__slow'
             squared
-            icon={<img src='/MySite/social_icons/twitter.png' alt='Twitter' />}
+            icon={<img src='/social_icons/twitter.png' alt='Twitter' />}
             //onClick={() => router.push('https://twitter.com/HRTK92')}
           />
         </Grid>
@@ -66,7 +66,7 @@ export default function Home() {
           <Avatar
             className='animate__animated animate__rotateIn animate__slow'
             squared
-            icon={<img src='/MySite/social_icons/discord.svg' height={50} width={50} alt='Discord' />}
+            icon={<img src='/social_icons/discord.svg' height={50} width={50} alt='Discord' />}
             onClick={() => router.push('https://discord.com/users/618332297275375636')}
           />
         </Grid>
@@ -76,7 +76,7 @@ export default function Home() {
         <Grid xs={12} sm={6} justify='center'>
           <Card className='wow animate__animated animate__fadeInUp animate__slow' css={{ p: '$6', mw: '400px' }}>
             <Card.Header onClick={() => router.push('https://github.com/HRTK92')}>
-              <img alt='github logo' src='/MySite/social_icons/github.svg' width='34px' height='34px' />
+              <img alt='github logo' src='/social_icons/github.svg' width='34px' height='34px' />
               <Grid.Container css={{ pl: '$6' }}>
                 <Grid xs={12}>
                   <Text
@@ -107,7 +107,7 @@ export default function Home() {
         <Grid xs={12} sm={6} justify='center'>
           <Card className='wow animate__animated animate__fadeInUp animate__slow' css={{ p: '$6', mw: '400px' }}>
             <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
-              <img alt='zenn logo' src='/MySite/social_icons/zenn.png' width='34ppx' height='34px' />
+              <img alt='zenn logo' src='/social_icons/zenn.png' width='34ppx' height='34px' />
               <Grid.Container css={{ pl: '$6' }}>
                 <Grid xs={12}>
                   <Text
