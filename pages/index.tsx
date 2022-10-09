@@ -62,6 +62,16 @@ export default function Home() {
             //onClick={() => router.push('https://twitter.com/HRTK92')}
           />
         </Grid>
+        {window.navigator.userAgent.indexOf('Instagram') !== -1 && (
+          <Grid>
+            <Avatar
+              className='animate__animated animate__rotateIn animate__slow'
+              squared
+              icon={<img src='/social_icons/Instagram.png' alt='Instagram' />}
+              onClick={() => router.push('https://www.instagram.com/hrtk92')}
+            />
+          </Grid>
+        )}
         <Grid>
           <Avatar
             className='animate__animated animate__rotateIn animate__slow'
