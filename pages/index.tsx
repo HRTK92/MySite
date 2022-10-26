@@ -1,4 +1,4 @@
-import { Avatar, Card, Grid, Loading, Row, Spacer, Text } from '@nextui-org/react'
+import { Avatar, Card, Col, Grid, Loading, Row, Spacer, Text } from '@nextui-org/react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
@@ -167,27 +167,16 @@ export default function Home() {
         {data ? (
           <>
             {data.items.map(article => (
-              <Grid xs={6} sm={3} key={article.link}>
-                <Card
-                  className='wow animate__animated animate__fadeInLeft'
-                  isPressable
-                  onClick={() => router.push(article.link)}>
-                  <Card.Body css={{ p: 0 }}>
-                    <Card.Image
-                      src={article.enclosure.link}
-                      objectFit='cover'
-                      width='100%'
-                      height={140}
-                      alt={article.title}
-                    />
+              <Col css={{ margin: '$4' }}>
+                <Card className='wow animate__animated animate__fadeInLeft animate__slow'>
+                  <Card.Body>
+                    <Text b size={'$md'} onClick={()=>router.push(article.link)}>
+                      {article.title}
+                    </Text>
+                    <Text color='gray'>{article.pubDate}</Text>
                   </Card.Body>
-                  <Card.Footer css={{ justifyItems: 'flex-start' }}>
-                    <Row wrap='wrap' justify='space-between' align='center'>
-                      <Text b>{article.title}</Text>
-                    </Row>
-                  </Card.Footer>
                 </Card>
-              </Grid>
+              </Col>
             ))}
           </>
         ) : (
