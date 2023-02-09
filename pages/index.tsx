@@ -166,8 +166,8 @@ export default function Home() {
       <Grid.Container id='zenn_articles' gap={2} justify='flex-start'>
         {data ? (
           <>
-            {data.items.map(article => (
-              <Col css={{ margin: '$4' }}>
+            {data.items.map((article, index) => (
+              <Col css={{ margin: '$4' }} key={index}>
                 <Card className='wow animate__animated animate__fadeInLeft animate__slow'>
                   <Card.Body>
                     <Text b size={'$md'} onClick={()=>router.push(article.link)}>

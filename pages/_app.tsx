@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    const handleStart = (url: any) => {
+    const handleStart = (url: string) => {
       NProgress.start()
     }
     const handleStop = () => {
