@@ -11,8 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
       - run: >-
-          yarn && yarn build && yarn export && yarn next-sitemap --config
+          pnpm install && pnpm run build && pnpm run export && pnpm run next-sitemap --config
           sitemap.config.js
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

@@ -10,14 +10,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: yarn
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: pnpm install
       - name: Install lhci
-        run: yarn add -D @lhci/cli@0.8.x
+        run: pnpm add -D @lhci/cli@0.8.x
       - name: Build
-        run: yarn build
+        run: pnpm run build
         env:
           urlPrefix: ''
       - name: Run Lighthouse
-        run: yarn lhci autorun
+        run: pnpm lhci autorun
