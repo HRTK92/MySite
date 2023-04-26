@@ -25,7 +25,8 @@ export default function Home() {
             h1
             css={{
               textGradient: '45deg, $purple600 -20%, $pink600 100%',
-            }}>
+            }}
+          >
             HRTK92
           </Text>
           <Card.Divider />
@@ -87,7 +88,8 @@ export default function Home() {
                     css={{
                       lineHeight: '$xs',
                       textGradient: '45deg, #e0c3fc 0%, #8ec5fc 100%',
-                    }}>
+                    }}
+                  >
                     GitHub
                   </Text>
                 </Grid>
@@ -118,7 +120,8 @@ export default function Home() {
                     css={{
                       lineHeight: '$xs',
                       textGradient: '45deg, #e0c3fc 0%, #8ec5fc 100%',
-                    }}>
+                    }}
+                  >
                     Zenn
                   </Text>
                 </Grid>
@@ -137,7 +140,8 @@ export default function Home() {
                   if (typeof document !== 'undefined') {
                     document.getElementById('zenn_articles')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
                   }
-                }}>
+                }}
+              >
                 View article list
               </Text>
             </Card.Footer>
@@ -152,7 +156,8 @@ export default function Home() {
         css={{
           textAlign: 'center',
           textGradient: '45deg, #84fab0 -20%, #8fd3f4 100%',
-        }}>
+        }}
+      >
         Zenn articles
       </Text>
       <Grid.Container id='zenn_articles' gap={2} justify='flex-start'>
@@ -162,7 +167,7 @@ export default function Home() {
               <Col css={{ margin: '$4' }} key={index}>
                 <Card className='wow animate__animated animate__fadeInLeft animate__slow'>
                   <Card.Body>
-                    <Text b size={'$md'} onClick={()=>router.push(article.link)}>
+                    <Text b size={'$md'} onClick={() => router.push(article.link)}>
                       {article.title}
                     </Text>
                     <Text color='gray'>{article.pubDate}</Text>
