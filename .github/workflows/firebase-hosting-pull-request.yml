@@ -13,7 +13,7 @@ jobs:
         with:
           version: 7
       - run: >-
-          pnpm install && pnpm run build && pnpm run export && pnpm run next-sitemap --config
+          pnpm install && pnpm run build && pnpm run export && pnpm next-sitemap --config
           sitemap.config.js
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
