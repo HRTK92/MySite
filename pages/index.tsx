@@ -55,6 +55,14 @@ export default function Home() {
             onClick={() => router.push('https://github.com/HRTK92')}
           />
         </Grid>
+        <Grid>
+          <Avatar
+            className='animate__animated animate__rotateIn animate__slow'
+            squared
+            icon={<img src='/social_icons/twitter.png' alt='Twitter' />}
+            //onClick={() => router.push('https://twitter.com/HRTK92')}
+          />
+        </Grid>
         {window.navigator.userAgent.indexOf('Instagram') !== -1 && (
           <Grid>
             <Avatar
