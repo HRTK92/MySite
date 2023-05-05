@@ -55,14 +55,6 @@ export default function Home() {
             onClick={() => router.push('https://github.com/HRTK92')}
           />
         </Grid>
-        <Grid>
-          <Avatar
-            className='animate__animated animate__rotateIn animate__slow'
-            squared
-            icon={<img src='/social_icons/twitter.png' alt='Twitter' />}
-            //onClick={() => router.push('https://twitter.com/HRTK92')}
-          />
-        </Grid>
         {window.navigator.userAgent.indexOf('Instagram') !== -1 && (
           <Grid>
             <Avatar
@@ -107,7 +99,7 @@ export default function Home() {
               </Grid.Container>
             </Card.Header>
             <Card.Body css={{ py: '$2' }}>
-              <Text>趣味で色々開発をしてます。主にwebアプリケーションなどを作っています。</Text>
+              <Text>趣味で色々開発をしてます。主に web アプリケーションなどを作っています。</Text>
             </Card.Body>
             <Card.Footer>
               <Text color='primary' onClick={() => router.push('https://github.com/HRTK92')}>
@@ -139,7 +131,7 @@ export default function Home() {
               </Grid.Container>
             </Card.Header>
             <Card.Body css={{ py: '$2' }}>
-              <Text>Zennで記事を書いています。主にプログラミングに関する記事を書いています。</Text>
+              <Text>Zenn で記事を書いています。主にプログラミングに関する記事を書いています。</Text>
             </Card.Body>
             <Card.Footer>
               <Text
@@ -171,7 +163,7 @@ export default function Home() {
       <Grid.Container id='zenn_articles' gap={2} justify='flex-start'>
         {data ? (
           <>
-            {data.items.map((article, index) => (
+            {data.items.slice(2).map((article, index) => (
               <Col css={{ margin: '$4' }} key={index}>
                 <Card className='wow animate__animated animate__fadeInLeft animate__slow'>
                   <Card.Body>
