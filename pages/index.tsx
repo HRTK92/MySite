@@ -6,13 +6,11 @@ import { ArticleList } from '../types/article'
 import expand_more_svg from '../public/expand_more.svg'
 import favorite_svg from '../public/favorite.svg'
 
-const fetcher = (url: string) => fetch(url).then(res => res.json())
-
 export default function Home() {
   const { data: zennFeed } = useSWR('/api/zennFeed', (url: string) =>
     fetch(url).then(res => res.json() as Promise<ArticleList>),
   )
-  const { data: zennUser } = useSWR('/api/zennUser', fetcher)
+  const { data: zennUser } = useSWR('/api/zennUser', (url: string) => fetch(url).then(res => res.json()))
 
   const router = useRouter()
 
@@ -184,13 +182,53 @@ export default function Home() {
                           router.push(item.link)
                         }, 500)
                       }}>
-                      <div className='flex-none rounded-xl bg-gray-200 p-2 shadow-md transition duration-500 hover:scale-105 hover:bg-blue-400'>
-                        <img src={item.enclosure.link} alt={item.title} className='rounded-xl' />
+                      <div className='flex-none  rounded-xl bg-gray-200 p-2 shadow-md transition duration-500 hover:scale-105 hover:bg-blue-400'>
+                        <img src={item.enclosure.link} alt={item.title} className='rounded-lg' />
                       </div>
                     </div>
                   ))
                 ) : (
-                  <></>
+                  <>
+                    <div className='p-2'>
+                      <div className='flex-none rounded-xl bg-gray-200 p-2 shadow-md transition duration-500 hover:scale-105'>
+                        <div className='flex animate-pulse space-x-4'>
+                          <div className='flex-1 space-y-4 py-1'>
+                            <div className='h-4 w-3/4 rounded bg-gray-400'></div>
+                            <div className='space-y-2'>
+                              <div className='h-4 rounded bg-gray-400'></div>
+                              <div className='h-4 w-5/6 rounded bg-gray-400'></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='p-2'>
+                      <div className='flex-none rounded-xl bg-gray-200 p-2 shadow-md transition duration-500 hover:scale-105'>
+                        <div className='flex animate-pulse space-x-4'>
+                          <div className='flex-1 space-y-4 py-1'>
+                            <div className='h-4 w-3/4 rounded bg-gray-400'></div>
+                            <div className='space-y-2'>
+                              <div className='h-4 rounded bg-gray-400'></div>
+                              <div className='h-4 w-5/6 rounded bg-gray-400'></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='p-2'>
+                      <div className='flex-none rounded-xl bg-gray-200 p-2 shadow-md transition duration-500 hover:scale-105'>
+                        <div className='flex animate-pulse space-x-4'>
+                          <div className='flex-1 space-y-4 py-1'>
+                            <div className='h-4 w-3/4 rounded bg-gray-400'></div>
+                            <div className='space-y-2'>
+                              <div className='h-4 rounded bg-gray-400'></div>
+                              <div className='h-4 w-5/6 rounded bg-gray-400'></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
                 )}
               </div>
             </div>
