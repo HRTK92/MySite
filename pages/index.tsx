@@ -1,15 +1,27 @@
-import { Avatar, Card, Col, Grid, Loading, Row, Spacer, Text } from '@nextui-org/react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import { ArticleList } from '../types/article'
 
-const fetcher = (url: string) => fetch(url).then(res => res.json() as Promise<ArticleList>)
+import expand_more_svg from '../public/expand_more.svg'
+import favorite_svg from '../public/favorite.svg'
+
+const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function Home() {
-  const { data, error } = useSWR('https://api.rss2json.com/v1/api.json?rss_url=https://zenn.dev/hrtk92/feed', fetcher)
+  const { data: zennFeed } = useSWR('/api/zennFeed', (url: string) =>
+    fetch(url).then(res => res.json() as Promise<ArticleList>),
+  )
+  const { data: zennUser } = useSWR('/api/zennUser', fetcher)
 
   const router = useRouter()
+
+  if (typeof document !== 'undefined') {
+    document.oncontextmenu = () => {
+      return false
+    }
+  }
+
   return (
     <>
       <Head>
@@ -17,173 +29,175 @@ export default function Home() {
         <meta name='description' content='はらたくのポートフォリオサイトです。' />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
-      <Grid.Container gap={2} justify='center'>
-        <Grid css={{ margin: '$20' }}>
-          <Text
-            className='animate__animated animate__fadeIn'
-            b
-            h1
-            css={{
-              textGradient: '45deg, $purple600 -20%, $pink600 100%',
-            }}
-          >
-            HRTK92
-          </Text>
-          <Card.Divider />
-          <Text className='animate__animated animate__fadeIn animate__slower' h2 color='gray'>
-            はらたく
-          </Text>
-        </Grid>
-        <Grid css={{ margin: '$20' }}>
-          <Avatar
-            className='animate__animated animate__fadeIn animate__slow'
-            src='/social_icons/myicon.webp'
-            alt='HRTK92'
-            css={{ size: '$20' }}
-            color='gradient'
-            bordered
-            zoomed
-          />
-        </Grid>
-      </Grid.Container>
-      <Grid.Container gap={2} justify='center' css={{ color: '$text' }}>
-        <Grid>
-          <Avatar
-            className='animate__animated animate__rotateIn animate__slow'
-            squared
-            icon={<img src='/social_icons/github.svg' height={50} width={50} alt='Github' />}
-            onClick={() => router.push('https://github.com/HRTK92')}
-          />
-        </Grid>
-        {window.navigator.userAgent.indexOf('Instagram') !== -1 && (
-          <Grid>
-            <Avatar
-              className='animate__animated animate__rotateIn animate__slow'
-              squared
-              icon={<img src='/social_icons/Instagram.png' alt='Instagram' />}
-              onClick={() => router.push('https://www.instagram.com/hrtk92')}
-            />
-          </Grid>
-        )}
-        <Grid>
-          <Avatar
-            className='animate__animated animate__rotateIn animate__slow'
-            squared
-            icon={<img src='/social_icons/discord.svg' height={50} width={50} alt='Discord' />}
-            onClick={() => router.push('https://discord.com/users/618332297275375636')}
-          />
-        </Grid>
-      </Grid.Container>
-      <Card.Divider />
-      <Grid.Container gap={2} justify='center'>
-        <Grid xs={12} sm={6} justify='center'>
-          <Card className='wow animate__animated animate__fadeInUp animate__slow' css={{ p: '$6', mw: '400px' }}>
-            <Card.Header onClick={() => router.push('https://github.com/HRTK92')}>
-              <img alt='github logo' src='/social_icons/github.svg' width='34px' height='34px' />
-              <Grid.Container css={{ pl: '$6' }}>
-                <Grid xs={12}>
-                  <Text
-                    b
-                    size={20}
-                    css={{
-                      lineHeight: '$xs',
-                      textGradient: '45deg, #e0c3fc 0%, #8ec5fc 100%',
-                    }}
-                  >
-                    GitHub
-                  </Text>
-                </Grid>
-                <Grid xs={12}>
-                  <Text css={{ color: '$accents8' }}>github.com/HRTK92</Text>
-                </Grid>
-              </Grid.Container>
-            </Card.Header>
-            <Card.Body css={{ py: '$2' }}>
-              <Text>趣味で色々開発をしてます。主に web アプリケーションなどを作っています。</Text>
-            </Card.Body>
-            <Card.Footer>
-              <Text color='primary' onClick={() => router.push('https://github.com/HRTK92')}>
-                View GitHub
-              </Text>
-            </Card.Footer>
-          </Card>
-        </Grid>
-        <Grid xs={12} sm={6} justify='center'>
-          <Card className='wow animate__animated animate__fadeInUp animate__slow' css={{ p: '$6', mw: '400px' }}>
-            <Card.Header onClick={() => router.push('https://zenn.dev/hrtk92')}>
-              <img alt='zenn logo' src='/social_icons/zenn.png' width='34ppx' height='34px' />
-              <Grid.Container css={{ pl: '$6' }}>
-                <Grid xs={12}>
-                  <Text
-                    b
-                    size={20}
-                    css={{
-                      lineHeight: '$xs',
-                      textGradient: '45deg, #e0c3fc 0%, #8ec5fc 100%',
-                    }}
-                  >
-                    Zenn
-                  </Text>
-                </Grid>
-                <Grid xs={12}>
-                  <Text css={{ color: '$accents8' }}>zenn.dev/hrtk92</Text>
-                </Grid>
-              </Grid.Container>
-            </Card.Header>
-            <Card.Body css={{ py: '$2' }}>
-              <Text>Zenn で記事を書いています。主にプログラミングに関する記事を書いています。</Text>
-            </Card.Body>
-            <Card.Footer>
-              <Text
-                color='primary'
-                onClick={() => {
-                  if (typeof document !== 'undefined') {
-                    document.getElementById('zenn_articles')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-                  }
-                }}
-              >
-                View article list
-              </Text>
-            </Card.Footer>
-          </Card>
-        </Grid>
-      </Grid.Container>
-      <Card.Divider />
-      <Spacer y={1} />
+      <main className='h-screen select-none snap-y snap-mandatory overflow-scroll scroll-smooth bg-white'>
+        <div className='flex h-screen w-screen animate-text-focus-in snap-start flex-col p-2 text-black'>
+          <div className='h-2/5 p-2'>
+            <div className='h-1/3' />
+            <div className='flex w-full flex-col'>
+              <div className='flex w-full'>
+                <div className='h-32 w-32 rounded-full bg-gray-800 transition duration-500 hover:scale-110'></div>
+                <div className='ml-4 flex flex-col justify-center'></div>
+              </div>
+              <p className='mt-2 font-bold text-gray-400'>
+                <span className='inline-block bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 bg-clip-text text-xl text-transparent'>
+                  HRTK92
+                </span>{' '}
+                is software developer.
+              </p>
+            </div>
+          </div>
 
-      <Text
-        h3
-        css={{
-          textAlign: 'center',
-          textGradient: '45deg, #84fab0 -20%, #8fd3f4 100%',
-        }}
-      >
-        Zenn articles
-      </Text>
-      <Grid.Container id='zenn_articles' gap={2} justify='flex-start'>
-        {data ? (
-          <>
-            {data.items.slice(2).map((article, index) => (
-              <Col css={{ margin: '$4' }} key={index}>
-                <Card className='wow animate__animated animate__fadeInLeft animate__slow'>
-                  <Card.Body>
-                    <Text b size={'$md'} onClick={() => router.push(article.link)}>
-                      {article.title}
-                    </Text>
-                    <Text color='gray'>{article.pubDate}</Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </>
-        ) : (
-          <Grid.Container justify='center'>
-            <Grid>
-              <Loading type='points' />
-            </Grid>
-          </Grid.Container>
-        )}
-      </Grid.Container>
+          <div className='h-1/3 p-2'></div>
+
+          <div className='flex h-1/6 flex-col p-2'>
+            <div className='flex animate-text-focus-in-slow flex-row justify-center'>
+              <a
+                href='https://github.com/HRTK92'
+                className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2 shadow-md transition hover:scale-125 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500'>
+                <img src='/social_icons/github.svg' alt='GitHub' className='h-7 w-7' />
+              </a>
+
+              <a
+                href='#zenn'
+                className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2 shadow-md transition hover:scale-125 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500'>
+                <img src='/social_icons/zenn.png' alt='Zenn' className='h-7 w-7 rounded-full' />
+              </a>
+
+              <a
+                href='#'
+                className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2
+              shadow-md transition hover:scale-125 hover:bg-gradient-to-r
+              hover:from-cyan-400 hover:to-blue-500 '>
+                <img src='/social_icons/twitter.svg' alt='Twitter' className='h-7 w-7' />
+              </a>
+
+              <a
+                href='https://discord.com/users/618332297275375636'
+                className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2 shadow-md transition hover:scale-125 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500'>
+                <img src='/social_icons/discord.svg' alt='Discord' className='h-7 w-7' />
+              </a>
+            </div>
+
+            <a className='mt-12 flex justify-center' href='#skills'>
+              <img
+                src={expand_more_svg.src}
+                alt='expand_more'
+                className='h-7 w-7 animate-bounce-slow fill-black text-gray-500 transition hover:scale-125 hover:text-gray-700'
+              />
+            </a>
+          </div>
+        </div>
+
+        <div
+          className='flex h-screen w-screen snap-start flex-col rounded-t-2xl bg-gray-100 p-2 text-black'
+          id='skills'>
+          <div className='flex flex-col p-2'>
+            <p className='pb-5 text-4xl font-bold text-gray-700'>Skills</p>
+            <div className='flex flex-col'>
+              <div className='grid grid-cols-2 py-1'>
+                <div className='flex flex-row rounded-lg py-1 transition duration-500 hover:scale-105 hover:shadow-md'>
+                  <img
+                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/115px-Python-logo-notext.svg.png'
+                    alt='Python'
+                    className='h-16 w-16 p-1'
+                  />
+                  <div className='flex flex-col justify-center'>
+                    <p className='px-1 font-bold text-gray-800'>Python</p>
+                  </div>
+                </div>
+                <div className='flex flex-row rounded-lg py-1 transition duration-500 hover:scale-105 hover:shadow-md'>
+                  <img
+                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/115px-Typescript_logo_2020.svg.png'
+                    alt='TypeScript'
+                    className='h-16 w-16 p-1'
+                  />
+                  <div className='flex flex-col justify-center'>
+                    <p className='px-1 font-bold text-gray-800'>TypeScript</p>
+                  </div>
+                </div>
+                <div className='flex flex-row rounded-lg py-1 transition duration-500 hover:scale-105 hover:shadow-md'>
+                  <img
+                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Dart_logo.png/600px-Dart_logo.png?20220718193800'
+                    alt='Dart'
+                    className='h-16 w-16 p-1'
+                  />
+                  <div className='flex flex-col justify-center'>
+                    <p className='px-1 font-bold text-gray-800'>Dart</p>
+                    <p className='px-1 text-sm font-bold text-gray-400'>studying</p>
+                  </div>
+                </div>
+              </div>
+              <div className='grid grid-cols-2 border-t py-1'>
+                <div className='flex flex-row rounded-lg py-1 transition duration-500 hover:scale-105 hover:shadow-md'>
+                  <div className='h-16 w-16 rounded-lg bg-gray-200 p-1' />
+                  <div className='flex flex-col justify-center'>
+                    <p className='px-1 font-bold text-gray-800'>Next.js</p>
+                  </div>
+                </div>
+                <div className='flex flex-row rounded-lg py-1 transition duration-500 hover:scale-105 hover:shadow-md'>
+                  <div className='h-16 w-16 rounded-lg bg-gray-200 p-1' />
+                  <div className='flex flex-col justify-center'>
+                    <p className='px-1 font-bold text-gray-800'>Django</p>
+                  </div>
+                </div>
+                <div className='flex flex-row rounded-lg py-1 transition duration-500 hover:scale-105 hover:shadow-md'>
+                  <div className='h-16 w-16 rounded-lg bg-gray-200 p-1' />
+                  <div className='flex flex-col justify-center'>
+                    <p className='px-1 font-bold text-gray-800'>Flutter</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className='flex h-screen w-screen snap-start flex-col bg-gray-100 p-2 text-black' id='zenn'>
+          <div className='flex flex-col p-2'>
+            <p className='text-4xl font-bold text-gray-700'>Zenn</p>
+            <div className='flex flex-col py-4'>
+              <div
+                className='flex flex-row'
+                onClick={() => {
+                  router.push('https://zenn.dev/hrtk92')
+                }}>
+                <img
+                  src={zennUser?.user.avatar_url}
+                  alt='HRTK92'
+                  className='h-16 w-16 rounded-full transition duration-500 hover:scale-105'
+                />
+                <div className='p-2'>
+                  <p className='px-1 font-bold text-gray-800'>{zennUser?.user.name}</p>
+                  <p className='px-1 text-sm font-bold text-gray-600 transition duration-500 hover:text-pink-400'>
+                    <img src={favorite_svg.src} alt='いいね' className='inline-block h-4 w-4' />
+                    {zennUser?.user.total_liked_count}
+                  </p>
+                </div>
+              </div>
+              <div className='grid grid-cols-2 md:grid-cols-4'>
+                {zennFeed ? (
+                  zennFeed.items.splice(2).map((item, index) => (
+                    <div
+                      key={index}
+                      className='p-2'
+                      onClick={() => {
+                        setTimeout(() => {
+                          router.push(item.link)
+                        }, 500)
+                      }}>
+                      <div className='flex-none rounded-xl bg-gray-200 p-2 shadow-md transition duration-500 hover:scale-105 hover:bg-blue-400'>
+                        <img src={item.enclosure.link} alt={item.title} className='rounded-xl' />
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <></>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='flex h-screen w-screen snap-start flex-col bg-gray-100 p-2 text-black'></div>
+      </main>
     </>
   )
 }
