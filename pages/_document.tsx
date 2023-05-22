@@ -20,7 +20,7 @@ class MyDocument extends Document {
           <meta property='og:type' content='website' />
           <meta name='twitter:card' content='summary_large_image' />
 
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
 
           {/* Google Analytics */}
           {GA_ID && (
