@@ -19,9 +19,8 @@ class MyDocument extends Document {
           <meta property='og:locale' content='ja_JP' />
           <meta property='og:type' content='website' />
           <meta name='twitter:card' content='summary_large_image' />
-          {/* wow.js */}
-          <script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
-          <script>new WOW().init();</script>
+
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
 
           {/* Google Analytics */}
           {GA_ID && (

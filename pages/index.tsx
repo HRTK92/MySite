@@ -24,8 +24,6 @@ export default function Home() {
     <>
       <Head>
         <title>はらたく - HRTK92</title>
-        <meta name='description' content='はらたくのポートフォリオサイトです。' />
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
       <main className='h-screen select-none snap-y snap-mandatory overflow-scroll scroll-smooth bg-white'>
         <div className='flex h-screen w-screen animate-text-focus-in snap-start flex-col p-2 text-black'>
