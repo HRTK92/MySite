@@ -3,8 +3,8 @@ import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import { ArticleList } from '../types/article'
 
-import expand_more_svg from '../public/expand_more.svg'
-import favorite_svg from '../public/favorite.svg'
+import expand_more_svg from '../public/icon/expand_more.svg'
+import favorite_svg from '../public/icon/favorite.svg'
 
 export default function Home() {
   const { data: zennFeed } = useSWR('/api/zennFeed', (url: string) =>
@@ -48,7 +48,7 @@ export default function Home() {
           <div className='h-1/3 p-2'></div>
 
           <div className='flex h-1/6 flex-col p-2'>
-            <div className='flex animate-text-focus-in-slow flex-row justify-center'>
+            <div className='flex animate-tracking-in-expand-fwd-bottom flex-row justify-center'>
               <a
                 href='https://github.com/HRTK92'
                 className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2 shadow-md transition hover:scale-125 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500'>
@@ -111,6 +111,7 @@ export default function Home() {
                   />
                   <div className='flex flex-col justify-center'>
                     <p className='px-1 font-bold text-gray-800'>TypeScript</p>
+                    <p className='px-1 text-xs font-bold text-gray-400'>Javascript</p>
                   </div>
                 </div>
                 <div className='flex flex-row rounded-lg py-1 transition duration-500 hover:scale-105 hover:shadow-md'>
@@ -139,22 +140,59 @@ export default function Home() {
                   </div>
                 </div>
                 <div className='flex flex-row rounded-lg py-1 transition duration-500 hover:scale-105 hover:shadow-md'>
-                  <div className='h-16 w-16 rounded-lg bg-gray-200 p-1' />
+                  <img
+                    src='https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg'
+                    className='h-16 w-16 rounded-lg bg-gray-200 p-1'
+                  />
                   <div className='flex flex-col justify-center'>
                     <p className='px-1 font-bold text-gray-800'>Flutter</p>
                   </div>
                 </div>
+                <div className='flex flex-row rounded-lg py-1 transition duration-500 hover:scale-105 hover:shadow-md'>
+                  <img
+                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/600px-Tailwind_CSS_Logo.svg.png?20211001194333'
+                    className='h-16 w-16 rounded-lg bg-gray-200 p-1'
+                  />
+                  <div className='flex flex-col justify-center'>
+                    <p className='px-1 font-bold text-gray-800'>Tailwind CSS</p>
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
+          <div className='flex flex-col p-2'>
+            <p className='pb-5 text-3xl font-bold text-gray-700'>Repository</p>
+            <div
+              className='flex flex-row rounded-md border bg-gray-800 p-2'
+              onClick={() => {
+                router.push('https://github.com/HRTK92/next-boards')
+              }}>
+              <img src='/social_icons/github.svg' alt='GitHub' className='h-10 w-10 fill-black' />
+              <div>
+                <p className='px-1 font-bold text-white'>HRTK92 / next-boards</p>
+                <p className='px-1 text-sm font-bold text-gray-400'>
+                  ☆ 2 <span className='px-1'>・</span> TypeScript/Next.js
+                </p>
+              </div>
+            </div>
+            <div
+              className='cursor-pointer p-3 text-center text-gray-700 transition duration-500 hover:scale-105 hover:text-gray-900'
+              onClick={() => {
+                router.push('https://github.com/HRTK92?tab=repositories&q=&type=&language=&sort=stargazers')
+              }}>
+              and more...
             </div>
           </div>
         </div>
 
         <div className='flex h-screen w-screen snap-start flex-col bg-gray-100 p-2 text-black' id='zenn'>
           <div className='flex flex-col p-2'>
-            <p className='text-4xl font-bold text-gray-700'>Zenn</p>
+            <p className='text-4xl font-bold text-gray-700'>
+              Zenn <span className='text-sm text-gray-500'>記事</span>
+            </p>
             <div className='flex flex-col py-4'>
               <div
-                className='flex flex-row'
+                className='flex flex-row rounded-md p-2 shadow-md transition duration-500 hover:scale-105 hover:shadow-lg'
                 onClick={() => {
                   router.push('https://zenn.dev/hrtk92')
                 }}>
@@ -234,7 +272,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className='flex h-screen w-screen snap-start flex-col bg-gray-100 p-2 text-black'></div>
+        <div className='flex h-screen w-screen snap-start flex-col bg-gray-100 p-2 text-black'>
+          <div className='flex flex-col p-2'>
+            <p className='text-4xl font-bold text-gray-700'>
+              OSS <span className='text-sm text-gray-500'>活動</span>
+            </p>
+          </div>
+        </div>
       </main>
     </>
   )

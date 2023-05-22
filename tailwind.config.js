@@ -14,6 +14,9 @@ module.exports = {
         'text-focus-in': 'text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
         'text-focus-in-slow': 'text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
         'bounce-slow': 'bounce 3s infinite',
+        'tracking-in-expand-fwd-bottom':
+          'tracking-in-expand-fwd-bottom 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000)   both',
+        'bg-pan-tr': 'bg-pan-tr 8s ease   both',
       },
       keyframes: {
         'text-focus-in': {
@@ -24,6 +27,28 @@ module.exports = {
           to: {
             filter: 'blur(0)',
             opacity: '1',
+          },
+        },
+        'tracking-in-expand-fwd-bottom': {
+          '0%': {
+            'letter-spacing': '-.5em',
+            transform: 'translateZ(-700px) translateY(500px)',
+            opacity: '0',
+          },
+          '40%': {
+            opacity: '.6',
+          },
+          to: {
+            transform: 'translateZ(0) translateY(0)',
+            opacity: '1',
+          },
+        },
+        'bg-pan-tr': {
+          '0%': {
+            'background-position': '0% 100%',
+          },
+          to: {
+            'background-position': '100% 0%',
           },
         },
       },
