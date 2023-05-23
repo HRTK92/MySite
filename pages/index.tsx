@@ -2,10 +2,8 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import { ArticleList } from '../types/article'
-
-import expand_more_svg from '../public/icon/expand_more.svg'
-import favorite_svg from '../public/icon/favorite.svg'
 import { useEffect, useState } from 'react'
+import { ArrowDown, Heart } from "@phosphor-icons/react";
 
 export default function Home() {
   const { data: zennFeed } = useSWR('/api/zennFeed', (url: string) =>
@@ -102,9 +100,7 @@ export default function Home() {
             </div>
 
             <a className='mt-12 flex justify-center' href='#skills'>
-              <img
-                src={expand_more_svg.src}
-                alt='expand_more'
+              <ArrowDown
                 className='h-7 w-7 animate-bounce-slow fill-black text-gray-500 transition hover:scale-125 hover:text-gray-700'
               />
             </a>
@@ -231,7 +227,7 @@ export default function Home() {
                 <div className='p-2'>
                   <p className='px-1 font-bold text-gray-800'>{zennUser?.user.name}</p>
                   <p className='px-1 text-sm font-bold text-gray-600 transition duration-500 hover:text-pink-400'>
-                    <img src={favorite_svg.src} alt='いいね' className='inline-block h-4 w-4' />
+                    <Heart className='inline-block h-4 w-4' />
                     {zennUser?.user.total_liked_count}
                   </p>
                 </div>
