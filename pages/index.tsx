@@ -1,9 +1,9 @@
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import useSWR from 'swr'
 import { ArticleList } from '../types/article'
-import { useEffect, useState } from 'react'
 import { ArrowDown, Heart } from '@phosphor-icons/react'
+import useSWR from 'swr'
 
 export default function Home() {
   const { data: zennFeed } = useSWR('/api/zennFeed', (url: string) =>
@@ -13,7 +13,7 @@ export default function Home() {
 
   const router = useRouter()
 
-  const texts = ['web', 'software']
+  const texts = ['student', 'web developer', 'software developer']
   const [currentText, setCurrentText] = useState(texts[0])
   const [isHidden, setIsHidden] = useState(false)
   useEffect(() => {
@@ -62,8 +62,8 @@ export default function Home() {
                 <span className='inline-block bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 bg-clip-text text-xl text-transparent'>
                   HRTK92
                 </span>{' '}
-                is <span className={isHidden ? 'animate-text-focus-out' : 'animate-text-focus-in'}>{currentText}</span>{' '}
-                developer.
+                is a{' '}
+                <span className={isHidden ? 'animate-text-focus-out' : 'animate-text-focus-in'}>{currentText}</span>.
               </p>
             </div>
           </div>
