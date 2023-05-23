@@ -13,6 +13,7 @@ module.exports = {
       animation: {
         'text-focus-in': 'text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
         'text-focus-in-slow': 'text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
+        'text-focus-out': 'text-focus-out 1s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
         'bounce-slow': 'bounce 3s infinite',
         'tracking-in-expand-fwd-bottom':
           'tracking-in-expand-fwd-bottom 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000)   both',
@@ -27,6 +28,16 @@ module.exports = {
           to: {
             filter: 'blur(0)',
             opacity: '1',
+          },
+        },
+        'text-focus-out': {
+          '0%': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+          to: {
+            filter: 'blur(12px)',
+            opacity: '0',
           },
         },
         'tracking-in-expand-fwd-bottom': {
