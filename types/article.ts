@@ -34,7 +34,7 @@ interface Item {
 }
 
 interface Enclosure {
-  link: string
+  url: string
   type: string
 }
 

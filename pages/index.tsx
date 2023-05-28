@@ -25,8 +25,7 @@ export default function Home() {
         setCurrentText(texts[nextIndex])
         setIsHidden(false)
       }, 1000)
-    }, 3000)
-
+    }, 2000)
     return () => {
       clearInterval(interval)
     }
@@ -41,8 +40,11 @@ export default function Home() {
     <>
       <Head>
         <title>はらたく - HRTK92</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
-      <main className='h-screen select-none snap-y snap-mandatory overflow-scroll scroll-smooth bg-white'>
+      <main
+        className='h-screen select-none snap-y snap-mandatory overflow-scroll scroll-smooth bg-white'
+      >
         <div className='flex h-screen w-screen animate-text-focus-in snap-start flex-col p-2 text-black'>
           <div className='h-2/5 p-2'>
             <div className='h-1/3' />
@@ -74,15 +76,13 @@ export default function Home() {
             <div className='flex animate-tracking-in-expand-fwd-bottom flex-row justify-center'>
               <a
                 href='https://github.com/HRTK92'
-                className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2 shadow-md transition hover:scale-125 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500'
-              >
+                className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2 shadow-md transition hover:scale-125 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500'>
                 <img src='/social_icons/github.svg' alt='GitHub' className='h-7 w-7' />
               </a>
 
               <a
                 href='#zenn'
-                className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2 shadow-md transition hover:scale-125 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500'
-              >
+                className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2 shadow-md transition hover:scale-125 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500'>
                 <img src='/social_icons/zenn.png' alt='Zenn' className='h-7 w-7 rounded-full' />
               </a>
 
@@ -90,15 +90,13 @@ export default function Home() {
                 href='#'
                 className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2
               shadow-md transition hover:scale-125 hover:bg-gradient-to-r
-              hover:from-cyan-400 hover:to-blue-500 '
-              >
+              hover:from-cyan-400 hover:to-blue-500 '>
                 <img src='/social_icons/twitter.svg' alt='Twitter' className='h-7 w-7' />
               </a>
 
               <a
                 href='https://discord.com/users/618332297275375636'
-                className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2 shadow-md transition hover:scale-125 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500'
-              >
+                className='duration-5000 mx-1 rounded-xl bg-gray-200 p-2 shadow-md transition hover:scale-125 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500'>
                 <img src='/social_icons/discord.svg' alt='Discord' className='h-7 w-7' />
               </a>
             </div>
@@ -111,8 +109,7 @@ export default function Home() {
 
         <div
           className='flex h-screen w-screen snap-start flex-col rounded-t-2xl bg-gray-100 p-2 text-black'
-          id='skills'
-        >
+          id='skills'>
           <div className='flex flex-col p-2'>
             <p className='pb-5 text-4xl font-bold text-gray-700'>
               Skills <span className='text-sm text-gray-500'>スキル</span>
@@ -192,8 +189,7 @@ export default function Home() {
               className='flex flex-row rounded-md border bg-gray-800 p-2'
               onClick={() => {
                 router.push('https://github.com/HRTK92/next-boards')
-              }}
-            >
+              }}>
               <img src='/social_icons/github.svg' alt='GitHub' className='h-10 w-10 fill-black' />
               <div>
                 <p className='px-1 font-bold text-white'>HRTK92 / next-boards</p>
@@ -206,8 +202,7 @@ export default function Home() {
               className='cursor-pointer p-3 text-end text-gray-700 transition duration-500 hover:scale-105 hover:text-gray-900'
               onClick={() => {
                 router.push('https://github.com/HRTK92?tab=repositories&q=&type=&language=&sort=stargazers')
-              }}
-            >
+              }}>
               and more...
             </div>
           </div>
@@ -218,19 +213,18 @@ export default function Home() {
             <p className='text-4xl font-bold text-gray-700'>
               Zenn <span className='text-sm text-gray-500'>記事</span>
             </p>
-            <div className='flex flex-col py-4'>
+            <div className='flex flex-col'>
               <div
                 className='flex flex-row rounded-md p-2 shadow-md transition duration-500 hover:scale-105 hover:shadow-lg'
                 onClick={() => {
                   router.push('https://zenn.dev/hrtk92')
-                }}
-              >
+                }}>
                 <img
                   src={zennUser?.user.avatar_url}
                   alt='HRTK92'
-                  className='h-16 w-16 rounded-full transition duration-500 hover:scale-105'
+                  className='h-12 w-12 rounded-full transition duration-500 hover:scale-105'
                 />
-                <div className='p-2'>
+                <div className='p-1'>
                   <p className='px-1 font-bold text-gray-800'>{zennUser?.user.name}</p>
                   <p className='px-1 text-sm font-bold text-gray-600 transition duration-500 hover:text-pink-400'>
                     <Heart className='inline-block h-4 w-4' />
@@ -240,7 +234,7 @@ export default function Home() {
               </div>
               <div className='grid grid-cols-2 md:grid-cols-4'>
                 {zennFeed ? (
-                  zennFeed.items.splice(2).map((item, index) => (
+                  zennFeed.items.map((item, index) => (
                     <div
                       key={index}
                       className='p-2'
@@ -248,10 +242,9 @@ export default function Home() {
                         setTimeout(() => {
                           router.push(item.link)
                         }, 500)
-                      }}
-                    >
-                      <div className='flex-none  rounded-xl bg-gray-200 p-2 shadow-md transition duration-500 hover:scale-105 hover:bg-blue-400'>
-                        <img src={item.enclosure.link} alt={item.title} className='rounded-lg' />
+                      }}>
+                      <div className='flex-none rounded-xl bg-gray-200 p-1 shadow-sm transition duration-500 hover:scale-105 hover:bg-blue-400'>
+                        <img src={item.enclosure?.url} alt={item.title} className='rounded-lg' />
                       </div>
                     </div>
                   ))
@@ -301,12 +294,77 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-        <div className='flex h-screen w-screen snap-start flex-col bg-gray-100 p-2 text-black'>
           <div className='flex flex-col p-2'>
             <p className='text-4xl font-bold text-gray-700'>
               OSS <span className='text-sm text-gray-500'>活動</span>
             </p>
+          </div>
+          <div className='flex flex-col'>
+            <div className='grid grid-cols-2 md:grid-cols-4'>
+              <div
+                className='p-2'
+                onClick={() => {
+                  setTimeout(() => {
+                    router.push('https://github.com/ImranR98/Obtainium/pull/425')
+                  }, 500)
+                }}>
+                <div className='flex-none rounded-xl bg-gray-200 p-1 shadow-sm transition duration-500 hover:scale-105 hover:bg-blue-400'>
+                  <img
+                    src='https://opengraph.githubassets.com/a8d1a304a25f464e4e16183aaf1227c98fa687027820b4235df8e4c00216e4c7/ImranR98/Obtainium/pull/425'
+                    className='rounded-lg'
+                  />
+                </div>
+              </div>
+              <div
+                className='p-2'
+                onClick={() => {
+                  setTimeout(() => {
+                    router.push('https://github.com/line/line-bot-sdk-nodejs/pull/428')
+                  }, 500)
+                }}>
+                <div className='flex-none rounded-xl bg-gray-200 p-1 shadow-sm transition duration-500 hover:scale-105 hover:bg-blue-400'>
+                  <img
+                    src='https://opengraph.githubassets.com/f7a9649f41025d5173ac148e91fe644a724b66da3506cd229d9cc798a19dda3b/line/line-bot-sdk-nodejs/pull/428'
+                    className='rounded-lg'
+                  />
+                </div>
+              </div>
+              <div
+                className='p-2'
+                onClick={() => {
+                  setTimeout(() => {
+                    router.push('https://github.com/zenn-dev/zenn-vscode-extension/issues/40')
+                  }, 500)
+                }}>
+                <div className='flex-none rounded-xl bg-gray-200 p-1 shadow-sm transition duration-500 hover:scale-105 hover:bg-blue-400'>
+                  <img
+                    src='https://opengraph.githubassets.com/60b90d9cb38404062b451c85b9047797d77a5fe69970d378e386605d25429222/zenn-dev/zenn-vscode-extension/issues/40'
+                    className='rounded-lg'
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='p-1 text-gray-500 font-bold'>今までに貢献したリポジトリ</div>
+            <div className='flex flex-row p-2 rounded-md border'>
+              <img
+                src='https://avatars.githubusercontent.com/u/64953479?s=40&v=4'
+                alt='Zenn'
+                className='p-1 rounded-full'
+                onClick={() => {
+                  router.push('https://github.com/zenn-dev')
+                }}
+              />
+              <img
+                src='https://avatars.githubusercontent.com/u/13128444?s=40&v=4'
+                alt='LINE'
+                className='p-1 rounded-full'
+                onClick={() => {
+                  router.push('https://github.com/line')
+                }}
+              />
+            </div>
           </div>
         </div>
       </main>

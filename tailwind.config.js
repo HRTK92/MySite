@@ -18,6 +18,7 @@ module.exports = {
         'tracking-in-expand-fwd-bottom':
           'tracking-in-expand-fwd-bottom 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000)   both',
         'bg-pan-tr': 'bg-pan-tr 8s ease   both',
+        "slide-left": "slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both"
       },
       keyframes: {
         'text-focus-in': {
@@ -62,6 +63,14 @@ module.exports = {
             'background-position': '100% 0%',
           },
         },
+        'slide-left': {
+          "0%": {
+            transform: "translateX(0)"
+          },
+          to: {
+            transform: "translateX(-100px)"
+          }
+        }
       },
     },
   },
