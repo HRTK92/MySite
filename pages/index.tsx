@@ -333,12 +333,12 @@ export default function Home() {
                 className='p-2'
                 onClick={() => {
                   setTimeout(() => {
-                    router.push('https://github.com/zenn-dev/zenn-vscode-extension/issues/40')
+                    router.push('https://github.com/zenn-dev/zenn-vscode-extension/pull/41')
                   }, 500)
                 }}>
                 <div className='flex-none rounded-xl bg-gray-200 p-1 shadow-sm transition duration-500 hover:scale-105 hover:bg-blue-400'>
                   <img
-                    src='https://opengraph.githubassets.com/60b90d9cb38404062b451c85b9047797d77a5fe69970d378e386605d25429222/zenn-dev/zenn-vscode-extension/issues/40'
+                    src='https://opengraph.githubassets.com/227924ad036124ffb5f9c4080d6e8fb681e128024eddfd11d85d8ddb53613eb8/zenn-dev/zenn-vscode-extension/pull/41'
                     className='rounded-lg'
                   />
                 </div>
