@@ -50,10 +50,11 @@ export default function Home() {
             <div className='h-1/3' />
             <div className='flex w-full flex-col'>
               <div className='flex w-full'>
-                {router.query.from == 'Instagram' ? (
+                {router.query.from === 'Instagram' ? (
                   <img
                     src='/image/avatar.jpg'
                     className='h-32 w-32 rounded-full transition duration-500 hover:scale-110'
+                    alt='avatar'
                   />
                 ) : (
                   <div className='h-32 w-32 rounded-full bg-gray-800 transition duration-500 hover:scale-110' />
@@ -166,6 +167,7 @@ export default function Home() {
                   <img
                     src='https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg'
                     className='h-16 w-16 rounded-lg bg-gray-200 p-1'
+                    alt='Flutter'
                   />
                   <div className='flex flex-col justify-center'>
                     <p className='px-1 font-bold text-gray-800'>Flutter</p>
@@ -175,6 +177,7 @@ export default function Home() {
                   <img
                     src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/600px-Tailwind_CSS_Logo.svg.png?20211001194333'
                     className='h-16 w-16 rounded-lg bg-gray-200 p-1'
+                    alt='Tailwind CSS'
                   />
                   <div className='flex flex-col justify-center'>
                     <p className='px-1 font-bold text-gray-800'>Tailwind CSS</p>
@@ -234,9 +237,8 @@ export default function Home() {
               </div>
               <div className='grid grid-cols-2 md:grid-cols-4'>
                 {zennFeed ? (
-                  zennFeed.items.map((item, index) => (
+                  zennFeed.items.map((item) => (
                     <div
-                      key={index}
                       className='p-2'
                       onClick={() => {
                         setTimeout(() => {
@@ -312,6 +314,7 @@ export default function Home() {
                   <img
                     src='https://opengraph.githubassets.com/a8d1a304a25f464e4e16183aaf1227c98fa687027820b4235df8e4c00216e4c7/ImranR98/Obtainium/pull/425'
                     className='rounded-lg'
+                    alt='Obtainium'
                   />
                 </div>
               </div>
@@ -326,6 +329,7 @@ export default function Home() {
                   <img
                     src='https://opengraph.githubassets.com/f7a9649f41025d5173ac148e91fe644a724b66da3506cd229d9cc798a19dda3b/line/line-bot-sdk-nodejs/pull/428'
                     className='rounded-lg'
+                    alt='line-bot-sdk-nodejs'
                   />
                 </div>
               </div>
@@ -340,6 +344,7 @@ export default function Home() {
                   <img
                     src='https://opengraph.githubassets.com/227924ad036124ffb5f9c4080d6e8fb681e128024eddfd11d85d8ddb53613eb8/zenn-dev/zenn-vscode-extension/pull/41'
                     className='rounded-lg'
+                    alt='zenn-vscode-extension'
                   />
                 </div>
               </div>
