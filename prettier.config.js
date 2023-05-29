@@ -1,0 +1,28 @@
+module.exports = {
+  plugins: [require('prettier-plugin-tailwindcss'), require('@trivago/prettier-plugin-sort-imports')],
+  printWidth: 120,
+  tabWidth: 2,
+  semi: false,
+  singleQuote: true,
+  quoteProps: 'as-needed',
+  jsxSingleQuote: true,
+  trailingComma: 'all',
+  bracketSpacing: true,
+  jsxBracketSameLine: true,
+  arrowParens: 'avoid',
+  endOfLine: 'lf',
+
+  importOrder: [
+    "^(react/(.*)$)|^(react$)",
+    "^(next/(.*)$)|^(next$)",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^types$",
+    "^@local/(.*)$",
+    "^@/config/(.*)$",
+    "^@/lib/(.*)$",
+    "^@/components/(.*)$",
+    "^@/styles/(.*)$",
+    "^[./]",
+  ],
+}

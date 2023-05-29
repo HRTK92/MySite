@@ -12,17 +12,13 @@ class MyDocument extends Document {
           <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
           <meta charSet='utf-8' />
           <meta property='og:title' content='HRTK92 - はらたく' />
-          <meta property='og:description' content='はらたくのポートフォリオサイトです' />
+          <meta property='og:description' content='' />
           <meta property='og:site_name' content='HRTK92' />
           <meta property='og:url' content='https://hrtk92-developer.web.app/MySite' />
           <meta property='og:image' content='https://hrtk92-developer.web.app/og_image.jpeg' />
           <meta property='og:locale' content='ja_JP' />
           <meta property='og:type' content='website' />
           <meta name='twitter:card' content='summary_large_image' />
-          {/* wow.js */}
-          <script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
-          <script>new WOW().init();</script>
-
           {/* Google Analytics */}
           {GA_ID && (
             <>
