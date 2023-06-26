@@ -72,6 +72,9 @@ module.exports = {
           }
         }
       },
+      fontFamily: {
+        rounded: ['"M PLUS Rounded 1c"']
+      }
     },
   },
   plugins: [],
