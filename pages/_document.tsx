@@ -18,7 +18,7 @@ class MyDocument extends Document {
           <meta property='og:locale' content='ja_JP' />
           <meta property='og:type' content='website' />
           <meta name='twitter:card' content='summary_large_image' />
-
+          
           <link rel="preconnect" href="https://fonts.googleapis.com"/>
           <link rel="preconnect" href="https://fonts.gstatic.com"/>
           <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet"/>
