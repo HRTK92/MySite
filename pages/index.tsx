@@ -42,7 +42,7 @@ export default function Home() {
         <title>はらたく - HRTK92</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
-      <div className='max-w-2xl mx-auto'>
+      <div className='max-w-2xl mx-auto font-rounded'>
         <main className='h-screen select-none snap-y snap-mandatory overflow-scroll scroll-smooth bg-white max-w-2xl'>
           <div className='flex h-screen animate-text-focus-in snap-start flex-col p-2 text-black'>
             <div className='h-2/5 p-2'>
