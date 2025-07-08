@@ -1,0 +1,30 @@
+export const zennUser = {
+    "user": {
+        "id": 51890,
+        "username": "hrtk92",
+        "name": "はらたく",
+        "avatar_small_url": "https://res.cloudinary.com/zenn/image/fetch/s--BOxAR3HK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_70/https://storage.googleapis.com/zenn-user-upload/avatar/670c161522.jpeg",
+        "avatar_url": "https://storage.googleapis.com/zenn-user-upload/avatar/670c161522.jpeg",
+        "bio": "",
+        "autolinked_bio": "",
+        "github_username": "hrtk92",
+        "twitter_username": null,
+        "created_at": "2021-07-25T21:27:07.024+09:00",
+        "updated_at": "2025-07-08T16:55:30.000+09:00",
+        "post_liked_count": 0,
+        "total_liked_count": 35,
+        "publication_follower_count": 0,
+        "is_login_user": false,
+        "is_friend": false,
+        "is_invoice_issuer": false,
+        "follower_count": 3,
+        "following_count": 6,
+        "following_user_count": 4,
+        "following_publication_count": 2,
+        "badge_count": 0,
+        "articles_count": 5,
+        "books_count": 0,
+        "scraps_count": 0,
+        "awards": []
+    }
+}
