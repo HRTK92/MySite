@@ -2,13 +2,14 @@
 
 import { ArrowDown, Heart } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
-import { memo, useCallback, useEffect, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { ossData } from '../data/oss'
 import { repositoriesData } from '../data/repositories'
 import { skillsData } from '../data/skills'
 import { zennFeed } from '../data/zenn-feed'
 import { zennUser } from '../data/zenn-user'
 import Image from 'next/image'
+import { ZennFeedItem } from '../../types/data'
 
 const SocialIcon = memo(
   ({
@@ -61,7 +62,7 @@ SkillItem.displayName = 'SkillItem'
 export default function Home() {
   const router = useRouter()
 
-  const texts = ['student', 'web developer', 'software developer', 'open source contributor']
+  const texts = useMemo(() => ['student', 'web developer', 'software developer', 'open source contributor'], [])
   const [currentText, setCurrentText] = useState(texts[0])
   const [isHidden, setIsHidden] = useState(false)
 
@@ -256,7 +257,7 @@ export default function Home() {
 
             {/* Articles */}
             <div className='grid grid-cols-2 md:grid-cols-4' role='list'>
-              {zennFeed.items.map((item: any) => (
+              {zennFeed.items.map((item: ZennFeedItem) => (
                 <div className='p-2' key={item.guid} role='listitem'>
                   <button
                     className='flex-none rounded-xl bg-gray-200 p-1 shadow-sm transition duration-500 hover:scale-105 hover:bg-blue-400 w-full'

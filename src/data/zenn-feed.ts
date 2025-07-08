@@ -1,6 +1,6 @@
-import { ArticleList } from '../../types/article'
+import { ZennFeed } from '../../types/data'
 
-export const zennFeed: ArticleList = {
+export const zennFeed: ZennFeed = {
     "status": "ok",
     "feed": {
         "url": "https://zenn.dev/hrtk92/feed",
