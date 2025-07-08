@@ -8,6 +8,7 @@ import { repositoriesData } from '../data/repositories'
 import { skillsData } from '../data/skills'
 import { zennFeed } from '../data/zenn-feed'
 import { zennUser } from '../data/zenn-user'
+import Image from 'next/image'
 
 const SocialIcon = memo(
   ({
@@ -28,7 +29,7 @@ const SocialIcon = memo(
       rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
       aria-label={`Visit ${alt} profile`}
     >
-      <img src={src} alt={alt} width={28} height={28} className={className} />
+      <Image src={src} alt={alt} width={28} height={28} className={className} />
     </a>
   )
 )
@@ -47,7 +48,7 @@ const SkillItem = memo(
     subtitle?: string
   }) => (
     <div className='flex flex-row rounded-lg py-1 transition duration-500 hover:scale-105 hover:shadow-md'>
-      <img src={src} alt={alt} width={64} height={64} className='h-16 w-16 p-1' />
+      <Image src={src} alt={alt} width={64} height={64} className='h-16 w-16 p-1' />
       <div className='flex flex-col justify-center'>
         <p className='px-1 font-bold text-gray-800'>{title}</p>
         {subtitle && <p className='px-1 text-xs font-bold text-gray-400'>{subtitle}</p>}
@@ -201,7 +202,7 @@ export default function Home() {
                 onClick={() => router.push(repo.url)}
                 aria-label={`View ${repo.name} repository`}
               >
-                <img src={repo.icon} alt='GitHub' width={40} height={40} className='h-10 w-10' />
+                <Image src={repo.icon} alt='GitHub' width={40} height={40} className='h-10 w-10' />
                 <div>
                   <p className='px-2 font-bold text-white text-left'>{repo.name}</p>
                   <p className='px-2 text-sm font-bold text-gray-400'>{repo.description}</p>
@@ -236,7 +237,7 @@ export default function Home() {
               aria-label="Visit HRTK92's Zenn profile"
             >
               {zennUser.user.avatar_url && (
-                <img
+                <Image
                   src={zennUser.user.avatar_url}
                   alt='HRTK92'
                   width={48}
@@ -265,7 +266,7 @@ export default function Home() {
                     aria-label={`Read article: ${item.title}`}
                   >
                     {item.enclosure?.link && (
-                      <img
+                      <Image
                         src={item.enclosure.link}
                         alt={item.title}
                         width={200}
@@ -295,7 +296,7 @@ export default function Home() {
                     }}
                     aria-label={contribution.description}
                   >
-                    <img
+                    <Image
                       src={contribution.image}
                       alt={contribution.title}
                       width={200}
@@ -317,7 +318,7 @@ export default function Home() {
                   onClick={() => router.push(org.url)}
                   aria-label={`Visit ${org.name} GitHub organization`}
                 >
-                  <img
+                  <Image
                     src={org.avatar}
                     alt={org.name}
                     width={40}
